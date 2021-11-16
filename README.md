@@ -8,7 +8,7 @@
 <br></br>
 
 
-### 2021.11.15
+### Day 1 (2021.11.15)
 
 > 아이디어 도출
 
@@ -42,7 +42,7 @@
 
 <br>
 
-### 2021.11.16
+### Day 2 (2021.11.16)
 
 > 프로토타입 제작
 
@@ -52,7 +52,7 @@
 
   - 와이어프레임
 
-    <left><img width="700" src="https://github.com/BAEKYUJEONG/MyBookReportApp/blob/master/resources/와이어프레임.pdf" alt="wireframe"/><left>
+    <left><img width="700" src="https://github.com/BAEKYUJEONG/MyBookReportApp/blob/master/resources/wireframe.png" alt="wireframe"/><left>
 
 <br>
 
