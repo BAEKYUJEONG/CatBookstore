@@ -16,18 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwg-EK-Z22">
-                                <rect key="frame" x="173" y="420" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" placeholder="책 검색하기" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-b4-On8">
+                                <rect key="frame" x="20" y="422.5" width="374" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qUc-b4-On8" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="6BW-4c-J8Q"/>
+                            <constraint firstItem="qUc-b4-On8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="9l5-Sx-qDr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qUc-b4-On8" secondAttribute="trailing" constant="20" id="C7e-Wt-PIU"/>
+                            <constraint firstItem="qUc-b4-On8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Zv4-De-ocY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q9m-Gn-PMc"/>
+                    <connections>
+                        <outlet property="homeSearchBar" destination="qUc-b4-On8" id="dHu-q4-66D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
