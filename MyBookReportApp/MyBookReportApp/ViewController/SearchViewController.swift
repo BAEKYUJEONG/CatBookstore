@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import SwiftyJSON
 
 class SearchViewController: UIViewController {
 
@@ -15,6 +16,9 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
+    
+    var startPage = 1
+    var totalCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,48 @@ class SearchViewController: UIViewController {
     
     func showKeyboard() {
         searchBar.becomeFirstResponder()
+    }
+    
+    // 네이버 책 네트워크 통신
+    func fetchBookData(query: String) {
+        if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            
+            let url = "https://openapi.naver.com/v1/search/book.json?query=\(text)"
+            
+            let header: HTTPHeaders = [
+                "X-Naver-Client-Id":"5EILmJiFoYNFhUzC8tul",
+                "X-Naver-Client-Secret":"28tK7AHt65"
+            ]
+            
+            AF.request(url, method: .get, headers: header).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                    
+                    self.totalCount = json["total"].intValue
+                    
+                    for item in json["items"].arrayValue {
+                        let value = item["title"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                        
+                        let image = item["image"].stringValue
+                        let link = item["link"].stringValue
+                        let author = item["author"].stringValue
+                        let publisher = item["publisher"].stringValue
+                        
+                        let description = item["description"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                    }
+                    
+                    DispatchQueue.main.async {
+                        // 중요!
+                        self.searchTableView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
 }
 
@@ -41,34 +87,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        // shadow가 있으려면 layer.borderWidth 값이 필요 : 테두리 두께
-        cell.view.layer.borderWidth = 0
-        // 테두리 밖으로 contents가 있을 때, 마스킹(true)하여 표출안되게 할것인지 마스킹을 off(false)하여 보일것인지 설정
-        cell.view.layer.masksToBounds = false
-        // shadow 색상
-        cell.view.layer.shadowColor = UIColor.gray.cgColor
-        // 현재 shadow는 view의 layer 테두리와 동일한 위치로 있는 상태이므로 offset을 통해 그림자를 이동시켜야 표출
-        cell.view.layer.shadowOffset = CGSize(width: 3, height: 3)
-        // shadow의 투명도 (0 ~ 1)
-        cell.view.layer.shadowOpacity = 0.3
-        
-        cell.view.layer.cornerRadius = 10.0
-        cell.view.layer.shadowRadius = 10.0
-        
-        cell.bookImageView.backgroundColor = .systemYellow
-        cell.bookImageView.layer.borderWidth = 3
-        cell.bookImageView.layer.borderColor = CGColor.init(red: 256, green: 256, blue: 256, alpha: 1)
-        cell.bookImageView.layer.cornerRadius = 10.0
-        cell.bookImageView.layer.shadowRadius = 10.0
-        
-        cell.bookImageView.layer.masksToBounds = false
-        cell.bookImageView.layer.shadowColor = UIColor.gray.cgColor
-        cell.bookImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        cell.bookImageView.layer.shadowOpacity = 0.3
-        
-        cell.bookTitle.text = "안녕 곰돌이 푸"
-        cell.bookWriter.text = "곰돌이"
-        cell.bookPublisher.text = "비룡소"
+        cell.configureCell()
         
         return cell
     }
