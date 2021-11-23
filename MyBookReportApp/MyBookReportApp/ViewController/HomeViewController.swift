@@ -34,4 +34,5 @@ extension HomeViewController: UISearchBarDelegate {
         // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }

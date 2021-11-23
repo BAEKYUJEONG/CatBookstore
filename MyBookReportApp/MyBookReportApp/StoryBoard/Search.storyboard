@@ -35,13 +35,13 @@
                                                     <rect key="frame" x="10" y="10" width="394" height="99"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글쓴이" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fm-9K-Iac">
-                                                            <rect key="frame" x="112" y="46" width="36.5" height="17"/>
+                                                            <rect key="frame" x="112" y="46" width="262" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출판사" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veO-nz-8BB">
-                                                            <rect key="frame" x="112" y="71" width="37" height="17"/>
+                                                            <rect key="frame" x="112" y="71" width="262" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -49,7 +49,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="veO-nz-8BB" secondAttribute="trailing" constant="20" id="85g-99-6Tq"/>
                                                         <constraint firstItem="veO-nz-8BB" firstAttribute="top" secondItem="1fm-9K-Iac" secondAttribute="bottom" constant="8" symbolic="YES" id="Gf9-uk-g1h"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1fm-9K-Iac" secondAttribute="trailing" constant="20" id="dc2-r8-FSY"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igO-j0-89c">
@@ -59,7 +61,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpc-hO-1Ha">
-                                                    <rect key="frame" x="122" y="20" width="30" height="21"/>
+                                                    <rect key="frame" x="122" y="20" width="262" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -68,6 +70,7 @@
                                             <constraints>
                                                 <constraint firstItem="igO-j0-89c" firstAttribute="top" secondItem="GBA-km-Vwt" secondAttribute="top" constant="20" id="8Tt-HX-Zdt"/>
                                                 <constraint firstItem="1fm-9K-Iac" firstAttribute="leading" secondItem="igO-j0-89c" secondAttribute="trailing" constant="20" id="K2w-Su-Uy2"/>
+                                                <constraint firstItem="Cpc-hO-1Ha" firstAttribute="trailing" secondItem="1fm-9K-Iac" secondAttribute="trailing" id="Lme-F8-jfa"/>
                                                 <constraint firstItem="veO-nz-8BB" firstAttribute="leading" secondItem="igO-j0-89c" secondAttribute="trailing" constant="20" id="Pmr-cG-fxf"/>
                                                 <constraint firstItem="1jh-2v-8no" firstAttribute="top" secondItem="GBA-km-Vwt" secondAttribute="top" constant="10" id="QVf-ys-Evo"/>
                                                 <constraint firstItem="1fm-9K-Iac" firstAttribute="top" secondItem="Cpc-hO-1Ha" secondAttribute="bottom" constant="15" id="YUJ-kM-8GW"/>
