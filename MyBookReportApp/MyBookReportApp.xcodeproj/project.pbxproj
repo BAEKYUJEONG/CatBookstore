@@ -32,9 +32,13 @@
 		6853AB39274BFAF4007ED148 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 6853AB38274BFAF4007ED148 /* SwiftyJSON */; };
 		6853AB3C274C0671007ED148 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3B274C0671007ED148 /* RealmModel.swift */; };
 		6853AB3E274CD5E9007ED148 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3D274CD5E9007ED148 /* Model.swift */; };
+		6853AB40274CEF81007ED148 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */; };
+		6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */; };
+		E2CFB4AEF22EA7187463DA70 /* Pods_MyBookReportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64827F3127287F567E8D9327 /* Pods-MyBookReportApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.debug.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6853AAFA274B3D47007ED148 /* MyBookReportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookReportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6853AAFD274B3D47007ED148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6853AAFF274B3D47007ED148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,10 @@
 		6853AB2E274B812D007ED148 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		6853AB3B274C0671007ED148 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		6853AB3D274CD5E9007ED148 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDetail.storyboard; sourceTree = "<group>"; };
+		C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBookReportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.release.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,17 +77,28 @@
 				6853AB29274B4B2D007ED148 /* RealmSwift in Frameworks */,
 				6853AB39274BFAF4007ED148 /* SwiftyJSON in Frameworks */,
 				6853AB27274B4B2D007ED148 /* Realm in Frameworks */,
+				E2CFB4AEF22EA7187463DA70 /* Pods_MyBookReportApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F7A988687848A7C5A04F223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6853AAF1274B3D47007ED148 = {
 			isa = PBXGroup;
 			children = (
 				6853AAFC274B3D47007ED148 /* MyBookReportApp */,
 				6853AAFB274B3D47007ED148 /* Products */,
+				F2B8D13868BF1C78A1625CA8 /* Pods */,
+				4F7A988687848A7C5A04F223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +138,7 @@
 				6853AB1D274B3F27007ED148 /* MyPageViewController.swift */,
 				6853AB2A274B4F7F007ED148 /* SearchViewController.swift */,
 				6853AB2E274B812D007ED148 /* SearchTableViewCell.swift */,
+				6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -131,6 +151,7 @@
 				6853AB21274B410C007ED148 /* Note.storyboard */,
 				6853AB1B274B3F16007ED148 /* MyPage.storyboard */,
 				6853AB2C274B4F96007ED148 /* Search.storyboard */,
+				6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -143,6 +164,16 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		F2B8D13868BF1C78A1625CA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64827F3127287F567E8D9327 /* Pods-MyBookReportApp.debug.xcconfig */,
+				D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6853AB0E274B3D49007ED148 /* Build configuration list for PBXNativeTarget "MyBookReportApp" */;
 			buildPhases = (
+				BE4C138F43156E7AB09BFAE9 /* [CP] Check Pods Manifest.lock */,
 				6853AAF6274B3D47007ED148 /* Sources */,
 				6853AAF7274B3D47007ED148 /* Frameworks */,
 				6853AAF8274B3D47007ED148 /* Resources */,
+				3BE510B1710D517C6BE3A1FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,9 +228,9 @@
 			);
 			mainGroup = 6853AAF1274B3D47007ED148;
 			packageReferences = (
-				6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */,
 				6853AB30274B8F40007ED148 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 				6853AB37274BFAF4007ED148 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 6853AAFB274B3D47007ED148 /* Products */;
@@ -215,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6853AB22274B410C007ED148 /* Note.storyboard in Resources */,
+				6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */,
 				6853AB0A274B3D49007ED148 /* LaunchScreen.storyboard in Resources */,
 				6853AB1C274B3F16007ED148 /* MyPage.storyboard in Resources */,
 				6853AB07274B3D49007ED148 /* Assets.xcassets in Resources */,
@@ -226,6 +260,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BE510B1710D517C6BE3A1FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE4C138F43156E7AB09BFAE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBookReportApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6853AAF6274B3D47007ED148 /* Sources */ = {
@@ -243,6 +319,7 @@
 				6853AB00274B3D47007ED148 /* SceneDelegate.swift in Sources */,
 				6853AB12274B3D89007ED148 /* HomeViewController.swift in Sources */,
 				6853AB14274B3E1D007ED148 /* FavoriteViewController.swift in Sources */,
+				6853AB40274CEF81007ED148 /* SearchDetailViewController.swift in Sources */,
 				6853AB2F274B812D007ED148 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -375,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -387,6 +464,7 @@
 		};
 		6853AB0F274B3D49007ED148 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64827F3127287F567E8D9327 /* Pods-MyBookReportApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -400,6 +478,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,12 +488,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		6853AB10274B3D49007ED148 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,6 +508,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -465,7 +546,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -481,7 +562,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -502,12 +583,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		6853AB26274B4B2D007ED148 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
 			productName = Realm;
 		};
 		6853AB28274B4B2D007ED148 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
 			productName = RealmSwift;
 		};
 		6853AB31274B8F40007ED148 /* Alamofire */ = {
@@ -517,7 +598,7 @@
 		};
 		6853AB35274B9019007ED148 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		6853AB38274BFAF4007ED148 /* SwiftyJSON */ = {
