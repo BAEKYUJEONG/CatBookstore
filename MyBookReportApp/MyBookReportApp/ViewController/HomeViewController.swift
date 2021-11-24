@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
             self.pagerView.transformer = FSPagerViewTransformer(type: .invertedFerrisWheel)
             self.pagerView.itemSize = CGSize(width: 100, height: 150)
+            //self.pagerView.interitemSpacing = 10
             self.pagerView.isInfinite = true
             self.pagerView.contentMode = .scaleAspectFit
             self.pagerView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
@@ -24,17 +25,41 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         }
     }
     
+    
+    //var arrayImageFisher = ["data1.jpg, data2.jpg, data3.jpg"]
+    var arrayImageFisher = ["https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg","https://kbob.github.io/images/sample-2.jpg"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeSearchBar.delegate = self
+        title = "홈"
         
+        homeSearchBar.delegate = self
+        pagerView.dataSource = self
+        pagerView.delegate = self
     }
     
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        
+        //let resource = ImageResource(downloadURL: URL(string: arrayImageFisher[index])!)
+        
+        let url = URL(string: arrayImageFisher[index])
+        
+        cell.imageView?.kf.setImage(with: url)
+        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imageView?.clipsToBounds = true
+        
+        /*
+        let row = tasks[indexPath.row]
+        
+        if let url = URL(string: row.image) {
+            cell.bookImageView.kf.setImage(with: url)
+        } else {
+            cell.bookImageView.image = UIImage(systemName: "nosign")
+        }*/
         
         //cell.imageView?.image = ...
         //cell.textLabel?.text = ...
@@ -54,7 +79,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     }
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return 10
+        //self.pageC.numberOfPages = self.arrayImageFisher.count
+        return 2
     }
     
 }
