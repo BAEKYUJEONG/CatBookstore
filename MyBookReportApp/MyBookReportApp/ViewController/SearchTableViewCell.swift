@@ -18,7 +18,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var bookPublisher: UILabel!
     
     func configureCell(row: UserBook) {
-        /*
+        
         // shadow가 있으려면 layer.borderWidth 값이 필요 : 테두리 두께
         view.layer.borderWidth = 0
         // 테두리 밖으로 contents가 있을 때, 마스킹(true)하여 표출안되게 할것인지 마스킹을 off(false)하여 보일것인지 설정
@@ -32,7 +32,7 @@ class SearchTableViewCell: UITableViewCell {
         
         view.layer.cornerRadius = 10.0
         view.layer.shadowRadius = 10.0
-        */
+        
         bookImageView.backgroundColor = .white
         bookImageView.layer.borderWidth = 3
         bookImageView.layer.borderColor = CGColor.init(red: 256, green: 256, blue: 256, alpha: 1)

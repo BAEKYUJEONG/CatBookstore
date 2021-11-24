@@ -25,7 +25,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView!
     
     var startPage = 1
-    var totalCount = 0
+    var totalCount = 600
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,105 @@ class SearchViewController: UIViewController {
         searchBar.becomeFirstResponder()
     }
     
+    /*
+    // 인터파크 책 네트워크 통신
+    func fetchBookData(query: String) {
+        if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            
+            let key = "195C74CC11F90BF250E1A5B4F89FA5FC997F3C9AB7F2F3DA1272D342B5B5DB8D"
+            
+            let url = "http://book.interpark.com/api/search.api?key=\(key)&query=\(text)&output=json&start=\(startPage)&maxResults=10&sort=salesPoint"
+            
+            AF.request(url, method: .get).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                    
+                    self.totalCount = json["totalResults"].intValue
+                    
+                    for item in json["item"].arrayValue {
+                        let bookTitle = item["title"].stringValue
+                        let image = item["coverLargeUrl"].stringValue
+                        //let link = item["url"].stringValue
+                        let author = item["author"].stringValue
+                        let publisher = item["publisher"].stringValue
+                        
+                        //let description = item["description"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                        
+                        let task = UserBook(bookTitle: bookTitle, author: author, publisher: publisher, image: image)
+                        //let data = BookModel(titleData: bookTitle, authorData: author, publisherData: publisher, imageData: image)
+                        
+                        try! self.localRealm.write {
+                            self.localRealm.add(task)
+                        }
+                        //self.bookData.append(data)
+                        
+                    }
+                    
+                    DispatchQueue.main.async {
+                        // 중요!
+                        self.searchTableView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print("에러",error)
+                }
+            }
+        }
+    }*/
+    
+    /*
+    // 카카오 책 네트워크 통신
+    func fetchBookData(query: String) {
+        if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            
+            let url = "https://dapi.kakao.com/v3/search/book?query=\(text)"
+            
+            let header: HTTPHeaders = [
+                "Authorization" : "b1b0e83c6eef6f4818035b87a75b89bf"
+            ]
+            
+            AF.request(url, method: .get, headers: header).validate().responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                    
+                    self.totalCount = json["meta"]["total_count"].intValue
+                    
+                    for item in json["documents"].arrayValue {
+                        let bookTitle = item["title"].stringValue
+                        let image = item["thumbnail"].stringValue
+                        //let link = item["url"].stringValue
+                        let author = item["authors"].stringValue
+                        let publisher = item["publisher"].stringValue
+                        
+                        //let description = item["description"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                        
+                        let task = UserBook(bookTitle: bookTitle, author: author, publisher: publisher, image: image)
+                        //let data = BookModel(titleData: bookTitle, authorData: author, publisherData: publisher, imageData: image)
+                        
+                        try! self.localRealm.write {
+                            self.localRealm.add(task)
+                        }
+                        //self.bookData.append(data)
+                        
+                    }
+                    
+                    DispatchQueue.main.async {
+                        // 중요!
+                        self.searchTableView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print("에러",error)
+                }
+            }
+        }
+    }*/
+    
+    
     // 네이버 책 네트워크 통신
     func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
@@ -81,8 +180,8 @@ class SearchViewController: UIViewController {
                         
                         let image = item["image"].stringValue
                         //let link = item["link"].stringValue
-                        let author = item["author"].stringValue
-                        let publisher = item["publisher"].stringValue
+                        let author = item["author"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                        let publisher = item["publisher"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
                         
                         //let description = item["description"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
                         
@@ -184,7 +283,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if let url = URL(string: row.image) {
             cell.bookImageView.kf.setImage(with: url)
         } else {
-            cell.bookImageView.image = UIImage(systemName: "star")
+            cell.bookImageView.image = UIImage(systemName: "nosign")
         }
         
         cell.configureCell(row: row)
@@ -194,6 +293,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 1. storyboard
+        let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
+        
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
