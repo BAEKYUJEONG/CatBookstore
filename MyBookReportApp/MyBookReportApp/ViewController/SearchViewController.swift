@@ -303,6 +303,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
         
+        let row = tasks[indexPath.row]
+        vc.text = row.bookTitle
+        
         // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }

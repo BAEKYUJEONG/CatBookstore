@@ -25,8 +25,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         }
     }
     
-    
-    //var arrayImageFisher = ["data1.jpg, data2.jpg, data3.jpg"]
     var arrayImageFisher = ["https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg","https://kbob.github.io/images/sample-2.jpg"]
     
     override func viewDidLoad() {
@@ -43,8 +41,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        
-        //let resource = ImageResource(downloadURL: URL(string: arrayImageFisher[index])!)
         
         let url = URL(string: arrayImageFisher[index])
         
@@ -70,17 +66,12 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         pagerView.delegate = self
         pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
         self.view.addSubview(pagerView)
-        
-        // Create a page control
-        let pageControl = FSPageControl(frame: frame2)
-        self.view.addSubview(pageControl)
         */
         return cell
     }
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        //self.pageC.numberOfPages = self.arrayImageFisher.count
-        return 2
+        return arrayImageFisher.count
     }
     
 }
