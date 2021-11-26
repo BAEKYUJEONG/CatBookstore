@@ -250,6 +250,43 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="cGB-hh-wrc"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="O1s-f5-qAa"/>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wZF-Jd-d6Z">
+                                <rect key="frame" x="324" y="772" width="70" height="70"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYF-mQ-Y2Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="i9e-o0-i8p"/>
+                                            <constraint firstAttribute="width" constant="70" id="ygn-hn-mqU"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="pencil"/>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPA-AQ-nZ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="H9K-pR-dOv"/>
+                                            <constraint firstAttribute="height" constant="70" id="LbR-O6-Iyq"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="like">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiV-4i-zsx">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="e0K-S5-NUJ"/>
+                                            <constraint firstAttribute="width" constant="70" id="pBd-wE-CpT"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="plus"/>
+                                        <connections>
+                                            <action selector="floatingButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bUJ-Il-RW4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -258,6 +295,8 @@
                             <constraint firstItem="sat-LH-Mdp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="BBa-A6-uVd"/>
                             <constraint firstItem="sat-LH-Mdp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ht5-Dq-HuE"/>
                             <constraint firstItem="sat-LH-Mdp" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="SMp-az-oFv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wZF-Jd-d6Z" secondAttribute="trailing" constant="20" id="Z2N-eY-aut"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wZF-Jd-d6Z" secondAttribute="bottom" constant="20" id="pVZ-0N-BoH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UMx-5Z-xhV"/>
@@ -271,6 +310,10 @@
                         <outlet property="detailPubDate" destination="6q6-Xl-TBh" id="E6e-XB-Xkk"/>
                         <outlet property="detailPublisher" destination="CrJ-N9-tbY" id="Lyy-jE-paz"/>
                         <outlet property="detailTitle" destination="eJI-Cu-YRM" id="eW7-jd-MaD"/>
+                        <outlet property="floatingButton" destination="tiV-4i-zsx" id="Tfs-MS-d4V"/>
+                        <outlet property="floatingStackView" destination="wZF-Jd-d6Z" id="fZi-ZY-xeJ"/>
+                        <outlet property="heartButton" destination="HPA-AQ-nZ8" id="iFt-uU-QLC"/>
+                        <outlet property="pencilButton" destination="RYF-mQ-Y2Z" id="tIW-xu-46h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -297,6 +340,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="like" width="512" height="512"/>
+        <image name="pencil" width="512" height="512"/>
+        <image name="plus" width="512" height="512"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

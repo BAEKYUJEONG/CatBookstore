@@ -40,8 +40,8 @@
                                                     <rect key="frame" x="20" y="22.5" width="74" height="99"/>
                                                     <color key="tintColor" red="0.84673130510000005" green="0.74875301120000004" blue="0.67190223930000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="igO-j0-89c" secondAttribute="height" multiplier="3:4" id="8xN-oB-XyX"/>
                                                         <constraint firstAttribute="width" constant="75" id="WgS-qJ-TpX"/>
+                                                        <constraint firstAttribute="width" secondItem="igO-j0-89c" secondAttribute="height" multiplier="3:4" id="epo-DQ-yhK"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpc-hO-1Ha">

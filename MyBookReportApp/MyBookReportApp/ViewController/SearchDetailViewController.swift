@@ -36,6 +36,28 @@ class SearchDetailViewController: UIViewController {
     var link: String = ""
     
     
+    // floating button
+    @IBOutlet weak var floatingStackView: UIStackView!
+    @IBOutlet weak var floatingButton: UIButton!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var pencilButton: UIButton!
+    
+    lazy var floatingDimView: UIView = {
+        let view = UIView(frame: self.view.frame)
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        view.alpha = 0
+        view.isHidden = true
+        
+        self.view.insertSubview(view, belowSubview: self.floatingStackView)
+        
+        return view
+    }()
+    
+    var isShowFloating: Bool = false
+    
+    lazy var buttons: [UIButton] = [self.heartButton, self.pencilButton]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +85,54 @@ class SearchDetailViewController: UIViewController {
     
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         print("link button click!")
+    }
+    
+    @IBAction func floatingButtonClicked(_ sender: UIButton) {
+        
+        if isShowFloating {
+            
+            buttons.reversed().forEach { button in
+                UIView.animate(withDuration: 0.3) {
+                    button.isHidden = true
+                    self.view.layoutIfNeeded()
+                }
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.floatingDimView.alpha = 0
+            }) { (_) in
+                self.floatingDimView.isHidden = true
+            }
+            
+        } else {
+            
+            buttons.forEach { [weak self] button in
+                button.isHidden = false
+                button.alpha = 0
+                
+                UIView.animate(withDuration: 0.3) {
+                    button.alpha = 1
+                    self?.view.layoutIfNeeded()
+                }
+            }
+            
+            self.floatingDimView.isHidden = false
+            
+            UIView.animate(withDuration: 0.5) {
+                self.floatingDimView.alpha = 1
+            }
+            
+        }
+        
+        isShowFloating = !isShowFloating
+        
+        let image = isShowFloating ? UIImage(named: "cancel") : UIImage(named: "plus")
+        let rotation = isShowFloating ? CGAffineTransform(rotationAngle: .pi - (.pi / 2)) : CGAffineTransform.identity
+        
+        UIView.animate(withDuration: 0.3) {
+            sender.setImage(image, for: .normal)
+            sender.transform = rotation
+        }
     }
     
 }
