@@ -36,12 +36,12 @@
                                                     <rect key="frame" x="10" y="10" width="394" height="99"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igO-j0-89c">
-                                                    <rect key="frame" x="20" y="15" width="74" height="114"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igO-j0-89c">
+                                                    <rect key="frame" x="20" y="22.5" width="74" height="99"/>
                                                     <color key="tintColor" red="0.84673130510000005" green="0.74875301120000004" blue="0.67190223930000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="114" id="0oz-dO-rks"/>
-                                                        <constraint firstAttribute="width" constant="80" id="IJz-0k-R98"/>
+                                                        <constraint firstAttribute="width" secondItem="igO-j0-89c" secondAttribute="height" multiplier="3:4" id="8xN-oB-XyX"/>
+                                                        <constraint firstAttribute="width" constant="75" id="WgS-qJ-TpX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpc-hO-1Ha">
@@ -64,7 +64,6 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="igO-j0-89c" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GBA-km-Vwt" secondAttribute="top" constant="15" id="8Tt-HX-Zdt"/>
                                                 <constraint firstItem="igO-j0-89c" firstAttribute="centerX" secondItem="GBA-km-Vwt" secondAttribute="centerX" constant="-150" id="D9P-r3-gb5"/>
                                                 <constraint firstAttribute="trailing" secondItem="1fm-9K-Iac" secondAttribute="trailing" constant="20" id="EM4-yG-JVz"/>
                                                 <constraint firstItem="veO-nz-8BB" firstAttribute="leading" secondItem="igO-j0-89c" secondAttribute="trailing" constant="20" id="Eev-WQ-IdR"/>
@@ -81,7 +80,6 @@
                                                 <constraint firstItem="1jh-2v-8no" firstAttribute="leading" secondItem="GBA-km-Vwt" secondAttribute="leading" constant="10" id="reK-2W-PeE"/>
                                                 <constraint firstItem="1fm-9K-Iac" firstAttribute="leading" secondItem="igO-j0-89c" secondAttribute="trailing" constant="20" id="vFa-6i-1fe"/>
                                                 <constraint firstAttribute="bottom" secondItem="1jh-2v-8no" secondAttribute="bottom" constant="35" id="vQ9-4S-ySP"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="igO-j0-89c" secondAttribute="bottom" constant="15" id="wvh-aO-00e"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>

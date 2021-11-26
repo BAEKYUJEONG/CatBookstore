@@ -57,7 +57,7 @@ class SearchViewController: UIViewController {
         searchBar.becomeFirstResponder()
     }
     
-    /*
+    
     // 인터파크 책 네트워크 통신
     func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
@@ -76,14 +76,18 @@ class SearchViewController: UIViewController {
                     
                     for item in json["item"].arrayValue {
                         let bookTitle = item["title"].stringValue
-                        let image = item["coverLargeUrl"].stringValue
-                        //let link = item["url"].stringValue
                         let author = item["author"].stringValue
                         let publisher = item["publisher"].stringValue
+                        let image = item["coverLargeUrl"].stringValue
                         
-                        //let description = item["description"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+                        let pubDate = item["pubDate"].stringValue
+                        let description = item["description"].stringValue
                         
-                        let task = UserBook(bookTitle: bookTitle, author: author, publisher: publisher, image: image)
+                        let customerReviewRank = item["customerReviewRank"].floatValue
+                        let priceStandard = item["priceStandard"].intValue
+                        let link = item["link"].stringValue
+                        
+                        let task = UserBook(bookTitle: bookTitle, author: author, publisher: publisher, image: image, pubDate: pubDate, descriptionBook: description, customerReviewRank: customerReviewRank, priceStandard: priceStandard, link: link)
                         //let data = BookModel(titleData: bookTitle, authorData: author, publisherData: publisher, imageData: image)
                         
                         try! self.localRealm.write {
@@ -103,7 +107,7 @@ class SearchViewController: UIViewController {
                 }
             }
         }
-    }*/
+    }
     
     /*
     // 카카오 책 네트워크 통신
@@ -156,7 +160,7 @@ class SearchViewController: UIViewController {
     }*/
     
     
-    // 네이버 책 네트워크 통신
+    /*// 네이버 책 네트워크 통신
     func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             
@@ -205,7 +209,7 @@ class SearchViewController: UIViewController {
                 }
             }
         }
-    }
+    }*/
 }
 
 
@@ -304,7 +308,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
         
         let row = tasks[indexPath.row]
-        vc.text = row.bookTitle
+        vc.titleText = row.bookTitle
+        vc.authorText = row.author
+        vc.publisherText = row.publisher
+        vc.imageText = row.image
+        
+        vc.pubDateText = row.pubDate
+        vc.descriptionText = row.descriptionBook
+        
+        vc.customerReviewRankText = row.customerReviewRank
+        vc.priceStandard = row.priceStandard
+        vc.link = row.link
         
         // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)

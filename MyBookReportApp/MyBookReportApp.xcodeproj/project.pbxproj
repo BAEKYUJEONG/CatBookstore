@@ -170,7 +170,6 @@
 				64827F3127287F567E8D9327 /* Pods-MyBookReportApp.debug.xcconfig */,
 				D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,9 +227,9 @@
 			);
 			mainGroup = 6853AAF1274B3D47007ED148;
 			packageReferences = (
-				6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */,
+				6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				6853AB30274B8F40007ED148 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				6853AB37274BFAF4007ED148 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 6853AAFB274B3D47007ED148 /* Products */;
@@ -546,7 +545,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */ = {
+		6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -562,7 +561,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -583,12 +582,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		6853AB26274B4B2D007ED148 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
+			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
 		};
 		6853AB28274B4B2D007ED148 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
+			package = 6853AB25274B4B2D007ED148 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 		6853AB31274B8F40007ED148 /* Alamofire */ = {
@@ -598,7 +597,7 @@
 		};
 		6853AB35274B9019007ED148 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 6853AB34274B9019007ED148 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		6853AB38274BFAF4007ED148 /* SwiftyJSON */ = {
