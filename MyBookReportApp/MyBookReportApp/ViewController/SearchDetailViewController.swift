@@ -7,10 +7,13 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class SearchDetailViewController: UIViewController {
     
     static let identifier = "SearchDetailViewController"
+    
+    let localRealm = try! Realm()
     
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailTitle: UILabel!
@@ -24,17 +27,17 @@ class SearchDetailViewController: UIViewController {
     @IBOutlet weak var detailPriceStandard: UILabel!
     @IBOutlet weak var detailLink: UIButton!
     
-    
     var imageText: String = ""
     var titleText: String  = ""
     var authorText: String = ""
     var publisherText: String = ""
     var pubDateText: String = ""
     var descriptionText: String = ""
-    var customerReviewRankText: Float = 0.0
+    var customerReviewRank: Float = 0.0
     var priceStandard: Int = 0
-    var link: String = ""
-    
+    var linkText: String = ""
+    var nowBool: Bool = false
+    var isbnText: String = ""
     
     // floating button
     @IBOutlet weak var floatingStackView: UIStackView!
@@ -79,7 +82,7 @@ class SearchDetailViewController: UIViewController {
         detailPubDate.text = pubDateText
         detailDescription.text = descriptionText
         
-        detailCustomerReviewRank.text = String(describing: customerReviewRankText)
+        detailCustomerReviewRank.text = String(describing: customerReviewRank)
         detailPriceStandard.text = String(describing: priceStandard)
     }
     
@@ -133,6 +136,51 @@ class SearchDetailViewController: UIViewController {
             sender.setImage(image, for: .normal)
             sender.transform = rotation
         }
+    }
+    
+    @IBAction func heartButtonClicked(_ sender: UIButton) {
+        print("하트 버튼 클릭")
+        
+        let task = UserFavoriteBook(bookTitle: detailTitle.text!,
+                            author: detailAuthor.text!,
+                            publisher: detailPublisher.text!,
+                            image: imageText,
+                            pubDate: detailPubDate.text!,
+                            descriptionBook: detailDescription.text!,
+                            customerReviewRank: customerReviewRank,
+                            priceStandard: priceStandard,
+                            link: linkText,
+                            favorite: true,
+                            now: nowBool,
+                            isbn: isbnText)
+        
+        try! localRealm.write {
+            
+            let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
+
+            print("디스북", thisBook)
+            print("페이보릿 북", localRealm.objects(UserFavoriteBook.self))
+            
+            if thisBook.isEmpty{
+                // 책 자체가 없으면 넣기
+                localRealm.add(task)
+            } else {
+                // 책이 전에 favorite 컬럼에 있으면 찾아서 상태 바꿔주기
+                // 어차피 같은 책은 하나밖에 없어서 first로 하면 하나 있는거 나온다.
+                if thisBook.first?.favorite == true {
+                    thisBook.first?.favorite = false
+                } else {
+                    thisBook.first?.favorite = true
+                }
+                
+                print("하트 상태", thisBook.first?.favorite)
+            }
+        }
+        
+    }
+    
+    @IBAction func pencilButtonClicked(_ sender: UIButton) {
+        print("펜슬 버튼 클릭")
     }
     
 }

@@ -87,7 +87,20 @@ class SearchViewController: UIViewController {
                         let priceStandard = item["priceStandard"].intValue
                         let link = item["link"].stringValue
                         
-                        let task = UserBook(bookTitle: bookTitle, author: author, publisher: publisher, image: image, pubDate: pubDate, descriptionBook: description, customerReviewRank: customerReviewRank, priceStandard: priceStandard, link: link)
+                        let isbn = item["isbn"].stringValue
+                        
+                        let task = UserBook(bookTitle: bookTitle,
+                                            author: author,
+                                            publisher: publisher,
+                                            image: image,
+                                            pubDate: pubDate,
+                                            descriptionBook: description,
+                                            customerReviewRank: customerReviewRank,
+                                            priceStandard: priceStandard,
+                                            link: link,
+                                            favorite: false,
+                                            now: false,
+                                            isbn: isbn)
                         //let data = BookModel(titleData: bookTitle, authorData: author, publisherData: publisher, imageData: image)
                         
                         try! self.localRealm.write {
@@ -240,7 +253,7 @@ extension SearchViewController: UISearchBarDelegate {
         print(#function)
         if let text = searchBar.text {
             try! localRealm.write {
-                localRealm.deleteAll()
+                localRealm.objects(UserBook.self).realm?.deleteAll()
             }
             //bookData.removeAll()
             startPage = 1
@@ -316,9 +329,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         vc.pubDateText = row.pubDate
         vc.descriptionText = row.descriptionBook
         
-        vc.customerReviewRankText = row.customerReviewRank
+        vc.customerReviewRank = row.customerReviewRank
         vc.priceStandard = row.priceStandard
-        vc.link = row.link
+        vc.linkText = row.link
+        
+        vc.nowBool = row.now
+        
+        vc.isbnText = row.isbn
         
         // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
