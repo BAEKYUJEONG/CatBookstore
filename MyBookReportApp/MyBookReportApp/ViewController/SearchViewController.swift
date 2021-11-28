@@ -253,7 +253,7 @@ extension SearchViewController: UISearchBarDelegate {
         print(#function)
         if let text = searchBar.text {
             try! localRealm.write {
-                localRealm.objects(UserBook.self).realm?.deleteAll()
+                localRealm.delete(localRealm.objects(UserBook.self))
             }
             //bookData.removeAll()
             startPage = 1

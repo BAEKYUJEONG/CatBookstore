@@ -181,6 +181,8 @@ class SearchDetailViewController: UIViewController {
     
     @IBAction func pencilButtonClicked(_ sender: UIButton) {
         print("펜슬 버튼 클릭")
+        
+        
     }
     
 }

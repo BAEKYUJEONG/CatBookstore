@@ -33,8 +33,8 @@ class SearchTableViewCell: UITableViewCell {
         view.layer.cornerRadius = 10.0
         view.layer.shadowRadius = 10.0
         
-        bookImageView.backgroundColor = .white
-        bookImageView.layer.borderWidth = 3
+        //bookImageView.backgroundColor = .white
+        //bookImageView.layer.borderWidth = 3
         bookImageView.layer.borderColor = CGColor.init(red: 256, green: 256, blue: 256, alpha: 1)
         //bookImageView.layer.cornerRadius = 10.0
         //bookImageView.layer.shadowRadius = 10.0
