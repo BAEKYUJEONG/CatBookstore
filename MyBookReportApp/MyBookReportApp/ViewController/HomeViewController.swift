@@ -6,10 +6,17 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 import Kingfisher
 import FSPagerView
+import RealmSwift
 
 class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDelegate {
+    
+    let localRealm = try! Realm()
+    
+    var tasks: Results<UserBestBook>!
     
     @IBOutlet weak var homeSearchBar: UISearchBar!
     @IBOutlet weak var pagerView: FSPagerView! {
@@ -27,6 +34,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     var arrayImageFisher = ["https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg","https://kbob.github.io/images/sample-2.jpg"]
     
+    var arrayBestSellerCover: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,43 +44,128 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         homeSearchBar.delegate = self
         pagerView.dataSource = self
         pagerView.delegate = self
+        
+        fetchBestSellerData()
+        appendArrayList()
+        
+        tasks = localRealm.objects(UserBestBook.self)
+        print("테스크", tasks)
+        print("링크", localRealm.configuration.fileURL)
+        
+        try! localRealm.write {
+            localRealm.delete(localRealm.objects(UserBestBook.self))
+        }
     }
     
+    func fetchBestSellerData() {
+        
+        let key = "195C74CC11F90BF250E1A5B4F89FA5FC997F3C9AB7F2F3DA1272D342B5B5DB8D"
+        
+        let url = "http://book.interpark.com/api/bestSeller.api?key=\(key)&categoryId=100&output=json"
+        
+        AF.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                
+                for item in json["item"].arrayValue {
+                    let title = item["title"].stringValue
+                    let author = item["author"].stringValue
+                    let publisher = item["publisher"].stringValue
+                    let image = item["coverLargeUrl"].stringValue
+                    
+                    let pubDate = item["pubDate"].stringValue
+                    let description = item["description"].stringValue
+                    
+                    let customerReviewRank = item["customerReviewRank"].floatValue
+                    let reviewCount = item["reviewCount"].intValue
+                    let priceStandard = item["priceStandard"].intValue
+                    let link = item["link"].stringValue
+                    
+                    let isbn = item["isbn"].stringValue
+                    
+                    let task = UserBestBook(bookTitle: title,
+                                        author: author,
+                                        publisher: publisher,
+                                        image: image,
+                                        pubDate: pubDate,
+                                        descriptionBook: description,
+                                        customerReviewRank: customerReviewRank,
+                                        reviewCount: reviewCount,
+                                        priceStandard: priceStandard,
+                                        link: link,
+                                        favorite: false,
+                                        now: false,
+                                        isbn: isbn)
+                    
+                    try! self.localRealm.write {
+                        self.localRealm.add(task)
+                    }
+                    
+                }
+                
+            case .failure(let error):
+                print("에러", error)
+            }
+        }
+    }
+    
+    func appendArrayList() {
+        for book in localRealm.objects(UserBestBook.self) {
+            arrayBestSellerCover.append(book.image)
+        }
+    }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         
-        let url = URL(string: arrayImageFisher[index])
+        let url = URL(string: arrayBestSellerCover[index])
         
         cell.imageView?.kf.setImage(with: url)
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         
-        /*
-        let row = tasks[indexPath.row]
-        
-        if let url = URL(string: row.image) {
-            cell.bookImageView.kf.setImage(with: url)
-        } else {
-            cell.bookImageView.image = UIImage(systemName: "nosign")
-        }*/
-        
-        //cell.imageView?.image = ...
-        //cell.textLabel?.text = ...
-        /*
-        // Create a pager view
-        let pagerView = FSPagerView(frame: frame1)
-        pagerView.dataSource = self
-        pagerView.delegate = self
-        pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
-        self.view.addSubview(pagerView)
-        */
         return cell
     }
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return arrayImageFisher.count
+        return arrayBestSellerCover.count
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        // 셀이 선택 되었을 때
+        
+        // 1. storyboard
+        let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
+        
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
+        
+        let row = tasks[index]
+        vc.titleText = row.bookTitle
+        vc.authorText = row.author
+        vc.publisherText = row.publisher
+        vc.imageText = row.image
+        
+        vc.pubDateText = row.pubDate
+        vc.descriptionText = row.descriptionBook
+        
+        vc.customerReviewRank = row.customerReviewRank
+        vc.reviewCount = row.reviewCount
+        vc.priceStandard = row.priceStandard
+        vc.linkText = row.link
+        
+        vc.nowBool = row.now
+        
+        vc.isbnText = row.isbn
+         
+        // let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
+        
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

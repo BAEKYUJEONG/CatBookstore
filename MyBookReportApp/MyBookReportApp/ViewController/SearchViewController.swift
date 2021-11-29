@@ -84,6 +84,7 @@ class SearchViewController: UIViewController {
                         let description = item["description"].stringValue
                         
                         let customerReviewRank = item["customerReviewRank"].floatValue
+                        let reviewCount = item["reviewCount"].intValue
                         let priceStandard = item["priceStandard"].intValue
                         let link = item["link"].stringValue
                         
@@ -96,6 +97,7 @@ class SearchViewController: UIViewController {
                                             pubDate: pubDate,
                                             descriptionBook: description,
                                             customerReviewRank: customerReviewRank,
+                                            reviewCount: reviewCount,
                                             priceStandard: priceStandard,
                                             link: link,
                                             favorite: false,
@@ -330,6 +332,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         vc.descriptionText = row.descriptionBook
         
         vc.customerReviewRank = row.customerReviewRank
+        vc.reviewCount = row.reviewCount
         vc.priceStandard = row.priceStandard
         vc.linkText = row.link
         

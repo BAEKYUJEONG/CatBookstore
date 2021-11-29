@@ -24,6 +24,7 @@ class SearchDetailViewController: UIViewController {
     @IBOutlet weak var detailDescription: UILabel!
     
     @IBOutlet weak var detailCustomerReviewRank: UILabel!
+    @IBOutlet weak var detailReviewCount: UILabel!
     @IBOutlet weak var detailPriceStandard: UILabel!
     @IBOutlet weak var detailLink: UIButton!
     
@@ -34,6 +35,7 @@ class SearchDetailViewController: UIViewController {
     var pubDateText: String = ""
     var descriptionText: String = ""
     var customerReviewRank: Float = 0.0
+    var reviewCount: Int = 0
     var priceStandard: Int = 0
     var linkText: String = ""
     var nowBool: Bool = false
@@ -83,6 +85,8 @@ class SearchDetailViewController: UIViewController {
         detailDescription.text = descriptionText
         
         detailCustomerReviewRank.text = String(describing: customerReviewRank)
+        let reviewCount = String(describing: reviewCount)
+        detailReviewCount.text = "(\(reviewCount)명)"
         detailPriceStandard.text = String(describing: priceStandard)
     }
     
@@ -148,6 +152,7 @@ class SearchDetailViewController: UIViewController {
                             pubDate: detailPubDate.text!,
                             descriptionBook: detailDescription.text!,
                             customerReviewRank: customerReviewRank,
+                            reviewCount: reviewCount,
                             priceStandard: priceStandard,
                             link: linkText,
                             favorite: true,

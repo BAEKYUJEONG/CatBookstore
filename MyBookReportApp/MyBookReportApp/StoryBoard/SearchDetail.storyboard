@@ -199,6 +199,12 @@
                                                                     <action selector="linkButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zsl-se-rMq"/>
                                                                 </connections>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0명)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vF-Ta-RXK">
+                                                                <rect key="frame" x="54" y="52" width="33.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -208,8 +214,10 @@
                                                             <constraint firstItem="Xz2-Co-iVQ" firstAttribute="leading" secondItem="gMH-Tf-5xK" secondAttribute="leading" constant="20" id="L8b-DX-djP"/>
                                                             <constraint firstItem="Isy-Av-FMT" firstAttribute="top" secondItem="Xz2-Co-iVQ" secondAttribute="bottom" constant="10" id="LSN-1C-kl1"/>
                                                             <constraint firstItem="cAA-yP-wss" firstAttribute="top" secondItem="gMH-Tf-5xK" secondAttribute="top" constant="20" id="RcC-io-fdY"/>
+                                                            <constraint firstItem="9vF-Ta-RXK" firstAttribute="centerY" secondItem="XtY-mL-di9" secondAttribute="centerY" id="U4q-YS-D6r"/>
                                                             <constraint firstItem="cAA-yP-wss" firstAttribute="leading" secondItem="gMH-Tf-5xK" secondAttribute="leading" constant="20" id="VFO-Tw-mfg"/>
                                                             <constraint firstItem="Isy-Av-FMT" firstAttribute="leading" secondItem="gMH-Tf-5xK" secondAttribute="leading" constant="20" id="bR6-p8-54c"/>
+                                                            <constraint firstItem="9vF-Ta-RXK" firstAttribute="leading" secondItem="XtY-mL-di9" secondAttribute="trailing" constant="10" id="djb-dY-Sab"/>
                                                             <constraint firstItem="Xz2-Co-iVQ" firstAttribute="top" secondItem="LbX-F9-rHh" secondAttribute="bottom" constant="30" id="hZB-9x-P3l"/>
                                                             <constraint firstItem="LbX-F9-rHh" firstAttribute="leading" secondItem="gMH-Tf-5xK" secondAttribute="leading" constant="20" id="q4y-Nj-SrX"/>
                                                             <constraint firstItem="wrS-Ls-4Tg" firstAttribute="leading" secondItem="gMH-Tf-5xK" secondAttribute="leading" constant="20" id="qRM-iY-6YQ"/>
@@ -315,6 +323,7 @@
                         <outlet property="detailPriceStandard" destination="LbX-F9-rHh" id="DhE-nV-hs9"/>
                         <outlet property="detailPubDate" destination="6q6-Xl-TBh" id="E6e-XB-Xkk"/>
                         <outlet property="detailPublisher" destination="CrJ-N9-tbY" id="Lyy-jE-paz"/>
+                        <outlet property="detailReviewCount" destination="9vF-Ta-RXK" id="6cQ-ZO-Mot"/>
                         <outlet property="detailTitle" destination="eJI-Cu-YRM" id="eW7-jd-MaD"/>
                         <outlet property="floatingButton" destination="tiV-4i-zsx" id="Tfs-MS-d4V"/>
                         <outlet property="floatingStackView" destination="wZF-Jd-d6Z" id="fZi-ZY-xeJ"/>
