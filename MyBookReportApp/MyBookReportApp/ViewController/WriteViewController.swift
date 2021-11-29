@@ -53,6 +53,7 @@ class WriteViewController: UIViewController {
         writeDate.text = strDate
         
         writeTextView.layer.cornerRadius = 10
+        writeTextView.font = UIFont(name: "나눔손글씨 백의의 천사", size: 22)
     }
     
     @objc func cancelButtonClicked() {

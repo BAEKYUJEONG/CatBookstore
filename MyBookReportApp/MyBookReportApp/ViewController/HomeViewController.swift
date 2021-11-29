@@ -44,6 +44,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         let random1 = Int.random(in: 0...bookQuotes.count-1)
         bookQuotesLabel.text = bookQuotes[random1]
+        bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 17)
         
         let random2 = Int.random(in: 0...bookQuotesImages.count-1)
         let url = URL(string: bookQuotesImages[random2])

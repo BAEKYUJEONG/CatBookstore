@@ -43,6 +43,7 @@ class NoteTableViewCell: UITableViewCell {
         let strDate = format.string(from: writeDate)
         noteDate.text = strDate
         noteContent.text = row.note
+        noteContent.font = UIFont(name: "나눔손글씨 백의의 천사", size: 18)
     }
     
     override func awakeFromNib() {

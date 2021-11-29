@@ -11,6 +11,9 @@
 		68461F4C27538F1300BA637C /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68461F4B27538F1300BA637C /* Write.storyboard */; };
 		68461F4F27546DB200BA637C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68461F4E27546DB200BA637C /* IQKeyboardManagerSwift */; };
 		68461F512754890400BA637C /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68461F502754890400BA637C /* NoteTableViewCell.swift */; };
+		684DEA552755454900FDC45D /* GowunBatang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684DEA542755454900FDC45D /* GowunBatang-Regular.ttf */; };
+		684DEA572755456700FDC45D /* 나눔손글씨 백의의 천사.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684DEA562755456700FDC45D /* 나눔손글씨 백의의 천사.ttf */; };
+		684DEA592755457700FDC45D /* 나눔손글씨 바른히피.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 684DEA582755457700FDC45D /* 나눔손글씨 바른히피.ttf */; };
 		6853AAFE274B3D47007ED148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AAFD274B3D47007ED148 /* AppDelegate.swift */; };
 		6853AB00274B3D47007ED148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AAFF274B3D47007ED148 /* SceneDelegate.swift */; };
 		6853AB02274B3D47007ED148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB01274B3D47007ED148 /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 		68461F4927538EEA00BA637C /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		68461F4B27538F1300BA637C /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
 		68461F502754890400BA637C /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		684DEA542755454900FDC45D /* GowunBatang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GowunBatang-Regular.ttf"; sourceTree = "<group>"; };
+		684DEA562755456700FDC45D /* 나눔손글씨 백의의 천사.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 백의의 천사.ttf"; sourceTree = "<group>"; };
+		684DEA582755457700FDC45D /* 나눔손글씨 바른히피.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 바른히피.ttf"; sourceTree = "<group>"; };
 		6853AAFA274B3D47007ED148 /* MyBookReportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookReportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6853AAFD274B3D47007ED148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6853AAFF274B3D47007ED148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +106,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		684DEA532755450900FDC45D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				684DEA542755454900FDC45D /* GowunBatang-Regular.ttf */,
+				684DEA562755456700FDC45D /* 나눔손글씨 백의의 천사.ttf */,
+				684DEA582755457700FDC45D /* 나눔손글씨 바른히피.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		6853AAF1274B3D47007ED148 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +137,7 @@
 		6853AAFC274B3D47007ED148 /* MyBookReportApp */ = {
 			isa = PBXGroup;
 			children = (
+				684DEA532755450900FDC45D /* Font */,
 				6853AB3A274C065F007ED148 /* Model */,
 				6853AB15274B3E2F007ED148 /* ViewController */,
 				6853AB16274B3EBB007ED148 /* StoryBoard */,
@@ -262,12 +279,15 @@
 				6853AB22274B410C007ED148 /* Note.storyboard in Resources */,
 				6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */,
 				6853AB0A274B3D49007ED148 /* LaunchScreen.storyboard in Resources */,
+				684DEA592755457700FDC45D /* 나눔손글씨 바른히피.ttf in Resources */,
 				6853AB1C274B3F16007ED148 /* MyPage.storyboard in Resources */,
 				6853AB07274B3D49007ED148 /* Assets.xcassets in Resources */,
 				6853AB05274B3D47007ED148 /* Main.storyboard in Resources */,
 				68461F4C27538F1300BA637C /* Write.storyboard in Resources */,
 				6853AB1A274B3EE8007ED148 /* Favorite.storyboard in Resources */,
+				684DEA552755454900FDC45D /* GowunBatang-Regular.ttf in Resources */,
 				6853AB2D274B4F96007ED148 /* Search.storyboard in Resources */,
+				684DEA572755456700FDC45D /* 나눔손글씨 백의의 천사.ttf in Resources */,
 				6853AB18274B3ED7007ED148 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
