@@ -121,13 +121,12 @@
 		6853AAFC274B3D47007ED148 /* MyBookReportApp */ = {
 			isa = PBXGroup;
 			children = (
-				6853AB3A274C065F007ED148 /* Realm */,
+				6853AB3A274C065F007ED148 /* Model */,
 				6853AB15274B3E2F007ED148 /* ViewController */,
 				6853AB16274B3EBB007ED148 /* StoryBoard */,
 				6853AAFD274B3D47007ED148 /* AppDelegate.swift */,
 				6853AAFF274B3D47007ED148 /* SceneDelegate.swift */,
 				6853AB01274B3D47007ED148 /* ViewController.swift */,
-				6853AB3D274CD5E9007ED148 /* Model.swift */,
 				6853AB03274B3D47007ED148 /* Main.storyboard */,
 				6853AB06274B3D49007ED148 /* Assets.xcassets */,
 				6853AB08274B3D49007ED148 /* LaunchScreen.storyboard */,
@@ -167,12 +166,13 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
-		6853AB3A274C065F007ED148 /* Realm */ = {
+		6853AB3A274C065F007ED148 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				6853AB3B274C0671007ED148 /* RealmModel.swift */,
+				6853AB3D274CD5E9007ED148 /* Model.swift */,
 			);
-			path = Realm;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F2B8D13868BF1C78A1625CA8 /* Pods */ = {

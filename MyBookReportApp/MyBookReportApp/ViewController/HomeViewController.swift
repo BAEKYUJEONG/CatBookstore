@@ -32,14 +32,30 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         }
     }
     
-    var arrayImageFisher = ["https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg","https://kbob.github.io/images/sample-2.jpg"]
+    @IBOutlet weak var bookQuotesImageView: UIImageView!
+    @IBOutlet weak var bookQuotesLabel: UILabel!
     
     var arrayBestSellerCover: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "홈"
+        title = " 홈"
+        
+        let random1 = Int.random(in: 0...bookQuotes.count-1)
+        bookQuotesLabel.text = bookQuotes[random1]
+        
+        let random2 = Int.random(in: 0...bookQuotesImages.count-1)
+        let url = URL(string: bookQuotesImages[random2])
+        bookQuotesImageView.kf.setImage(with: url)
+        bookQuotesImageView.layer.cornerRadius = 10
+        
+        // 행간 조절
+        let attrString = NSMutableAttributedString(string: bookQuotesLabel.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        bookQuotesLabel.attributedText = attrString
         
         homeSearchBar.delegate = self
         pagerView.dataSource = self
