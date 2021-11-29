@@ -160,9 +160,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         vc.nowBool = row.now
         
         vc.isbnText = row.isbn
-         
-        // let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
-        
         
         // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)

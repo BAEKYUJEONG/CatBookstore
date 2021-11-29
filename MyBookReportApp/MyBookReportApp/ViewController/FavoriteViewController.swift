@@ -64,6 +64,36 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 140
+        return 130
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 1. storyboard
+        let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
+        
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
+        
+        let row = tasks[indexPath.row]
+        vc.titleText = row.bookTitle
+        vc.authorText = row.author
+        vc.publisherText = row.publisher
+        vc.imageText = row.image
+        
+        vc.pubDateText = row.pubDate
+        vc.descriptionText = row.descriptionBook
+        
+        vc.customerReviewRank = row.customerReviewRank
+        vc.reviewCount = row.reviewCount
+        vc.priceStandard = row.priceStandard
+        vc.linkText = row.link
+        
+        vc.nowBool = row.now
+        
+        vc.isbnText = row.isbn
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

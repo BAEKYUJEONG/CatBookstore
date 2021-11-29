@@ -38,6 +38,7 @@ class SearchDetailViewController: UIViewController {
     var reviewCount: Int = 0
     var priceStandard: Int = 0
     var linkText: String = ""
+    var favoriteBool: Bool = false
     var nowBool: Bool = false
     var isbnText: String = ""
     
