@@ -182,7 +182,19 @@ class SearchDetailViewController: UIViewController {
     @IBAction func pencilButtonClicked(_ sender: UIButton) {
         print("펜슬 버튼 클릭")
         
+        // 1. storyboard
+        let sb = UIStoryboard(name: "Write", bundle: nil)
         
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: WriteViewController.identifier) as! WriteViewController
+        
+        vc.titleText = titleText
+        vc.authorText = authorText
+        vc.imageText = imageText
+        vc.isbnText = isbnText
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

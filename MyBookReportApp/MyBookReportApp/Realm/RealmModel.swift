@@ -102,5 +102,33 @@ class UserFavoriteBook: Object {
     }
 }
 
-
-//UserNote 추후 제작
+// UserNote : 테이블 이름
+// @Persisted : 컬럼
+class UserNote: Object {
+    @Persisted var bookTitle: String // 책 제목
+    @Persisted var author: String // 작가
+    @Persisted var image: String // 이미지 링크
+    
+    @Persisted var note: String // 노트 내용
+    @Persisted var writeDate = Date() // 노트 등록일
+    
+    // 중요!
+    @Persisted var isbn: String // 책 주민등록번호
+    
+    // PK (필수) : Int, String, UUID, ObjectID -> AutoIncrement
+    @Persisted(primaryKey: true) var _id: ObjectId
+    
+    convenience init(bookTitle: String, author: String, image: String, note: String, writeDate: Date, isbn: String) {
+        
+        self.init()
+        
+        self.bookTitle = bookTitle
+        self.author = author
+        self.image = image
+        
+        self.note = note
+        self.writeDate = writeDate
+        
+        self.isbn = isbn
+    }
+}

@@ -305,7 +305,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wZF-Jd-d6Z" secondAttribute="bottom" constant="20" id="pVZ-0N-BoH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UMx-5Z-xhV"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="UMx-5Z-xhV"/>
                     <connections>
                         <outlet property="detailAuthor" destination="EBf-1O-zi3" id="0aW-ad-DJc"/>
                         <outlet property="detailCustomerReviewRank" destination="XtY-mL-di9" id="9db-pS-55Y"/>
