@@ -20,7 +20,6 @@ class NoteTableViewCell: UITableViewCell {
     
     func configureCell(row: UserNote) {
         noteImageView.layer.borderWidth = 0
-        
         noteImageView.layer.masksToBounds = false
         noteImageView.layer.shadowColor = UIColor.gray.cgColor
         noteImageView.layer.shadowOffset = CGSize(width: 3, height: 3)

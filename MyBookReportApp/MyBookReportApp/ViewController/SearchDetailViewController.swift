@@ -79,6 +79,12 @@ class SearchDetailViewController: UIViewController {
             detailImageView.image = UIImage(systemName: "nosign")
         }
         
+        detailImageView.layer.borderWidth = 0
+        detailImageView.layer.masksToBounds = false
+        detailImageView.layer.shadowColor = UIColor.gray.cgColor
+        detailImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        detailImageView.layer.shadowOpacity = 0.3
+        
         detailTitle.text = titleText
         detailAuthor.text = authorText
         detailPublisher.text = publisherText
