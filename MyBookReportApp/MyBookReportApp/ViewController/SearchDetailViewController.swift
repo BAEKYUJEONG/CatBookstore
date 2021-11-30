@@ -185,6 +185,7 @@ class SearchDetailViewController: UIViewController {
             if thisBook.isEmpty{
                 // 책 자체가 없으면 넣기
                 localRealm.add(task)
+                heartButton.setImage(UIImage(named: "like_circle"), for: .normal)
             } else {
                 // 책이 전에 favorite 컬럼에 있으면 찾아서 상태 바꿔주기
                 // 어차피 같은 책은 하나밖에 없어서 first로 하면 하나 있는거 나온다.
