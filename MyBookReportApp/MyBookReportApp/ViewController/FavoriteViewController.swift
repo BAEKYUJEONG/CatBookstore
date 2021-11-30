@@ -26,7 +26,7 @@ class FavoriteViewController: UIViewController {
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         
-        tasks = localRealm.objects(UserFavoriteBook.self).filter("favorite == true")
+        tasks = localRealm.objects(UserFavoriteBook.self).filter("favorite == true").sorted(byKeyPath: "writeDate", ascending: false)
         print("테스크", tasks)
         print(localRealm.configuration.fileURL)
         

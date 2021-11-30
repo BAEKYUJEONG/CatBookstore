@@ -75,6 +75,7 @@ class UserFavoriteBook: Object {
     
     @Persisted var favorite: Bool // 즐겨찾기
     @Persisted var now: Bool // 현재 읽고 있는 책
+    @Persisted var writeDate = Date() // 등록일
     
     // 중요!
     @Persisted var isbn: String // 책 주민등록번호
@@ -82,7 +83,7 @@ class UserFavoriteBook: Object {
     // PK (필수) : Int, String, UUID, ObjectID -> AutoIncrement
     @Persisted(primaryKey: true) var _id: ObjectId
     
-    convenience init(bookTitle: String, author: String, publisher: String, image: String, pubDate: String, descriptionBook: String, customerReviewRank: Float, reviewCount: Int, priceStandard: Int, link: String, favorite: Bool, now: Bool, isbn: String) {
+    convenience init(bookTitle: String, author: String, publisher: String, image: String, pubDate: String, descriptionBook: String, customerReviewRank: Float, reviewCount: Int, priceStandard: Int, link: String, favorite: Bool, now: Bool, writeDate: Date, isbn: String) {
         
         self.init()
         
@@ -101,6 +102,7 @@ class UserFavoriteBook: Object {
         
         self.favorite = favorite
         self.now = now
+        self.writeDate = writeDate
         
         self.isbn = isbn
     }

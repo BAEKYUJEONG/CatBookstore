@@ -171,6 +171,7 @@ class SearchDetailViewController: UIViewController {
                             link: linkText,
                             favorite: true,
                             now: nowBool,
+                            writeDate: Date(),
                             isbn: isbnText)
         
         try! localRealm.write {
@@ -188,8 +189,10 @@ class SearchDetailViewController: UIViewController {
                 // 어차피 같은 책은 하나밖에 없어서 first로 하면 하나 있는거 나온다.
                 if thisBook.first?.favorite == true {
                     thisBook.first?.favorite = false
+                    thisBook.first?.writeDate = Date()
                 } else {
                     thisBook.first?.favorite = true
+                    thisBook.first?.writeDate = Date()
                 }
                 
                 print("하트 상태", thisBook.first?.favorite)

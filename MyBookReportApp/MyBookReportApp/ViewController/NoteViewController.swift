@@ -24,7 +24,7 @@ class NoteViewController: UIViewController {
         
         noteTableView.delegate = self
         noteTableView.dataSource = self
-        tasks = localRealm.objects(UserNote.self)
+        tasks = localRealm.objects(UserNote.self).sorted(byKeyPath: "writeDate", ascending: false)
         print("테스크", tasks)
         print(localRealm.configuration.fileURL)
     }
