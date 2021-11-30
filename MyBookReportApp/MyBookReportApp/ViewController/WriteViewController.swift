@@ -73,7 +73,12 @@ class WriteViewController: UIViewController {
     @objc func saveButtonClicked() {
         print("save 클릭")
         
-        if writeTextView.text.isEmpty { 
+        if writeTextView.text.isEmpty { // 내용이 없다면 알림창뜨고 저장 안하기
+            let alert = UIAlertController(title: "내용 없음", message: "내용이 없어 저장이 안된다냥!", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
             
         } else { // 저장하기
             let nowDate = Date()
