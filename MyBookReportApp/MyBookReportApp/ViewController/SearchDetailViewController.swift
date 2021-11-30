@@ -88,11 +88,25 @@ class SearchDetailViewController: UIViewController {
         detailCustomerReviewRank.text = String(describing: customerReviewRank)
         let reviewCount = String(describing: reviewCount)
         detailReviewCount.text = "(\(reviewCount)명)"
-        detailPriceStandard.text = String(describing: priceStandard)
+        detailPriceStandard.text = String(describing: priceStandard)+"원"
+        
+        detailLink.layer.cornerRadius = 5
+        detailLink.layer.borderWidth = 0.2
     }
     
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         print("link button click!")
+        
+        // 1. storyboard
+        let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
+        
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: WebViewController.identifier) as! WebViewController
+        
+        vc.linkText = linkText
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func floatingButtonClicked(_ sender: UIButton) {
