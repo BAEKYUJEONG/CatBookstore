@@ -68,6 +68,7 @@ class SearchDetailViewController: UIViewController {
         super.viewDidLoad()
         
         contentSetting()
+        imageSetting()
     }
     
     func contentSetting() {
@@ -147,8 +148,8 @@ class SearchDetailViewController: UIViewController {
         
         isShowFloating = !isShowFloating
         
-        let image = isShowFloating ? UIImage(named: "cancel") : UIImage(named: "plus")
-        let rotation = isShowFloating ? CGAffineTransform(rotationAngle: .pi - (.pi / 2)) : CGAffineTransform.identity
+        let image = isShowFloating ? UIImage(named: "plus_circle") : UIImage(named: "plus_circle_float")
+        let rotation = isShowFloating ? CGAffineTransform(rotationAngle: .pi - (.pi / 4)) : CGAffineTransform.identity
         
         UIView.animate(withDuration: 0.3) {
             sender.setImage(image, for: .normal)
@@ -190,15 +191,27 @@ class SearchDetailViewController: UIViewController {
                 if thisBook.first?.favorite == true {
                     thisBook.first?.favorite = false
                     thisBook.first?.writeDate = Date()
+                    heartButton.setImage(UIImage(named: "dislike_circle"), for: .normal)
+                    
                 } else {
                     thisBook.first?.favorite = true
                     thisBook.first?.writeDate = Date()
+                    heartButton.setImage(UIImage(named: "like_circle"), for: .normal)
                 }
                 
                 print("하트 상태", thisBook.first?.favorite)
             }
         }
         
+    }
+    
+    func imageSetting() {
+        let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
+        
+        if !thisBook.isEmpty {
+            let image = thisBook.first!.favorite ? UIImage(named: "like_circle") : UIImage(named: "dislike_circle")
+            heartButton.setImage(image, for: .normal)
+        }
     }
     
     @IBAction func pencilButtonClicked(_ sender: UIButton) {

@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = " 홈"
+        title = "홈"
         
         let random1 = Int.random(in: 0...bookQuotes.count-1)
         bookQuotesLabel.text = bookQuotes[random1]

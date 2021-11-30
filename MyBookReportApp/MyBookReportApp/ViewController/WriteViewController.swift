@@ -73,9 +73,9 @@ class WriteViewController: UIViewController {
     @objc func saveButtonClicked() {
         print("save 클릭")
         
-        if writeTextView.text.isEmpty {
+        if writeTextView.text.isEmpty { 
             
-        } else {
+        } else { // 저장하기
             let nowDate = Date()
             
             let task = UserNote(bookTitle: titleText,
