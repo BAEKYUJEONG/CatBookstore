@@ -26,7 +26,7 @@ class NoteTableViewCell: UITableViewCell {
         noteImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
         noteImageView.layer.shadowOpacity = 0.3
         
-        noteView.layer.borderWidth = 0.2
+        noteView.layer.borderWidth = 0
         //noteView.layer.borderColor = CGColor.init(red: 214, green: 214, blue: 214, alpha: 1)
         noteView.layer.cornerRadius = 10
         noteView.layer.shadowColor = UIColor.gray.cgColor

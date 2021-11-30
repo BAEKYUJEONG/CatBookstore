@@ -205,7 +205,7 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isy-Av-FMT">
                                                                 <rect key="frame" x="20" y="212.5" width="46.5" height="31"/>
-                                                                <color key="backgroundColor" red="0.88627451660000001" green="0.80392158030000005" blue="0.70980393890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="backgroundColor" red="0.87058818339999999" green="0.89803922179999995" blue="0.73333334920000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="31" id="MA2-6y-ELU"/>
                                                                     <constraint firstAttribute="width" constant="46.5" id="MkE-jX-P17"/>

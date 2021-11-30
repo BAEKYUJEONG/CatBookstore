@@ -12,6 +12,7 @@ import Kingfisher
 class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var favoriteTableView: UITableView!
+    @IBOutlet weak var favoriteEmptyView: UIView!
     
     let localRealm = try! Realm()
     
@@ -28,12 +29,27 @@ class FavoriteViewController: UIViewController {
         tasks = localRealm.objects(UserFavoriteBook.self).filter("favorite == true")
         print("테스크", tasks)
         print(localRealm.configuration.fileURL)
+        
+        if tasks.count == 0 {
+            favoriteEmptyView.isHidden = false
+        } else {
+            favoriteEmptyView.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         favoriteTableView.reloadData()
+        emptyView()
+    }
+    
+    func emptyView() {
+        if tasks.count == 0 {
+            favoriteEmptyView.isHidden = false
+        } else {
+            favoriteEmptyView.isHidden = true
+        }
     }
 }
 

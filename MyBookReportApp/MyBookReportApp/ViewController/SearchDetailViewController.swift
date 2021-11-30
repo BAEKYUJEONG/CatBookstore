@@ -91,7 +91,6 @@ class SearchDetailViewController: UIViewController {
         detailPriceStandard.text = String(describing: priceStandard)+"원"
         
         detailLink.layer.cornerRadius = 5
-        detailLink.layer.borderWidth = 0.2
     }
     
     @IBAction func linkButtonClicked(_ sender: UIButton) {

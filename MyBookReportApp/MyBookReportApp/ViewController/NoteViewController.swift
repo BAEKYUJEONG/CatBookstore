@@ -11,6 +11,7 @@ import RealmSwift
 class NoteViewController: UIViewController {
 
     @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var noteEmptyView: UIView!
     
     let localRealm = try! Realm()
     
@@ -32,6 +33,15 @@ class NoteViewController: UIViewController {
         super.viewWillAppear(animated)
         
         noteTableView.reloadData()
+        emptyView()
+    }
+    
+    func emptyView() {
+        if tasks.count == 0 {
+            noteEmptyView.isHidden = false
+        } else {
+            noteEmptyView.isHidden = true
+        }
     }
     
 }

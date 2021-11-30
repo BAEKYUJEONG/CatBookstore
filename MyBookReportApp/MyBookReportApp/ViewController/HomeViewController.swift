@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         let random2 = Int.random(in: 0...bookQuotesImages.count-1)
         let url = URL(string: bookQuotesImages[random2])
         bookQuotesImageView.kf.setImage(with: url)
-        bookQuotesImageView.layer.cornerRadius = 10
+        bookQuotesImageView.layer.cornerRadius = 5
         
         // 행간 조절
         let attrString = NSMutableAttributedString(string: bookQuotesLabel.text!)
