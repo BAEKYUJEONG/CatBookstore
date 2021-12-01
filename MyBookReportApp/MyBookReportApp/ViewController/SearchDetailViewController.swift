@@ -15,6 +15,8 @@ class SearchDetailViewController: UIViewController {
     
     let localRealm = try! Realm()
     
+    var tasks: Results<UserRecentBook>!
+    
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailTitle: UILabel!
     @IBOutlet weak var detailAuthor: UILabel!
@@ -69,6 +71,27 @@ class SearchDetailViewController: UIViewController {
         
         contentSetting()
         imageSetting()
+        
+        tasks = localRealm.objects(UserRecentBook.self)
+        print("테스크", tasks)
+        print(localRealm.configuration.fileURL)
+        
+        let task = UserRecentBook(bookTitle: titleText,
+                                  author: authorText,
+                                  publisher: publisherText,
+                                  image: imageText,
+                                  pubDate: pubDateText,
+                                  descriptionBook: descriptionText,
+                                  customerReviewRank: customerReviewRank,
+                                  reviewCount: reviewCount,
+                                  priceStandard: priceStandard,
+                                  link: linkText,
+                                  writeDate: Date(),
+                                  isbn: isbnText)
+        
+        try! self.localRealm.write {
+            self.localRealm.add(task)
+        }
     }
     
     func contentSetting() {

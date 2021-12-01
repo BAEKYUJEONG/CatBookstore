@@ -33,6 +33,10 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     }
     
     @IBOutlet weak var todayDateLabel: UILabel!
+    
+    @IBOutlet weak var recentImageView: UIImageView!
+    @IBOutlet weak var recentTitle: UILabel!
+    
     @IBOutlet weak var bookQuotesImageView: UIImageView!
     @IBOutlet weak var bookQuotesLabel: UILabel!
     
@@ -43,19 +47,22 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         title = "홈"
         
+        //todayDateLable
         let date = Date()
         let format = DateFormatter()
         format.dateFormat = "yyyy년 M월 d일"
         let strDate = format.string(from: date)
         todayDateLabel.text = strDate
         
+        //bookQuotesLabel
         let random1 = Int.random(in: 0...bookQuotes.count-1)
         bookQuotesLabel.text = bookQuotes[random1]
         bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 14)
         
+        //bookQuotesImageView
         let random2 = Int.random(in: 0...bookQuotesImages.count-1)
-        let url = URL(string: bookQuotesImages[random2])
-        bookQuotesImageView.kf.setImage(with: url)
+        let bookQuotesUrl = URL(string: bookQuotesImages[random2])
+        bookQuotesImageView.kf.setImage(with: bookQuotesUrl)
         bookQuotesImageView.layer.cornerRadius = 5
         
         // 행간 조절
@@ -78,6 +85,17 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         try! localRealm.write {
             localRealm.delete(localRealm.objects(UserBestBook.self))
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //recent
+        if let thisRecentBook = localRealm.self.objects(UserRecentBook.self).last {
+            let recentUrl = URL(string: thisRecentBook.image)
+            recentImageView.kf.setImage(with: recentUrl)
+            recentTitle.text = thisRecentBook.bookTitle
+        } else {
+            recentTitle.text = "최근 찾아본 책이 없어요"
         }
     }
     
