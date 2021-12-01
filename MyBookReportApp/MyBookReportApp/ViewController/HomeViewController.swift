@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         }
     }
     
+    @IBOutlet weak var todayDateLabel: UILabel!
     @IBOutlet weak var bookQuotesImageView: UIImageView!
     @IBOutlet weak var bookQuotesLabel: UILabel!
     
@@ -42,8 +43,14 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         title = "홈"
         
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy년 M월 d일"
+        let strDate = format.string(from: date)
+        todayDateLabel.text = strDate
+        
         let random1 = Int.random(in: 0...bookQuotes.count-1)
-        bookQuotesLabel.text = bookQuotes[4]
+        bookQuotesLabel.text = bookQuotes[random1]
         bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 14)
         
         let random2 = Int.random(in: 0...bookQuotesImages.count-1)
