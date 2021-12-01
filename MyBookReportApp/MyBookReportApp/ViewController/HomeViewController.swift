@@ -22,8 +22,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
-            self.pagerView.transformer = FSPagerViewTransformer(type: .invertedFerrisWheel)
-            self.pagerView.itemSize = CGSize(width: 100, height: 150)
+            self.pagerView.transformer = FSPagerViewTransformer(type: .ferrisWheel)
+            self.pagerView.itemSize = CGSize(width: 130, height: 195)
             //self.pagerView.interitemSpacing = 10
             self.pagerView.isInfinite = true
             self.pagerView.contentMode = .scaleAspectFit
@@ -43,8 +43,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         title = "홈"
         
         let random1 = Int.random(in: 0...bookQuotes.count-1)
-        bookQuotesLabel.text = bookQuotes[random1]
-        bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 17)
+        bookQuotesLabel.text = bookQuotes[4]
+        bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 14)
         
         let random2 = Int.random(in: 0...bookQuotesImages.count-1)
         let url = URL(string: bookQuotesImages[random2])
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         // 행간 조절
         let attrString = NSMutableAttributedString(string: bookQuotesLabel.text!)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 4
+        paragraphStyle.lineSpacing = 2
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         bookQuotesLabel.attributedText = attrString
         
