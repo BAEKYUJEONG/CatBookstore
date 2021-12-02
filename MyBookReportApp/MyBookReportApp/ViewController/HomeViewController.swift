@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     let localRealm = try! Realm()
     
     var tasks: Results<UserBestBook>!
+    var tasks_recent: Results<UserRecentBook>!
     
     @IBOutlet weak var homeSearchBar: UISearchBar!
     @IBOutlet weak var pagerView: FSPagerView! {
@@ -36,6 +37,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     @IBOutlet weak var recentImageView: UIImageView!
     @IBOutlet weak var recentTitle: UILabel!
+    @IBOutlet weak var recentView: UIView!
+    @IBOutlet weak var recentEmptyView: UIView!
     
     @IBOutlet weak var bookQuotesImageView: UIImageView!
     @IBOutlet weak var bookQuotesLabel: UILabel!
@@ -53,6 +56,9 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         format.dateFormat = "yyyy년 M월 d일"
         let strDate = format.string(from: date)
         todayDateLabel.text = strDate
+        
+        //recent
+        recentViewClicked()
         
         //bookQuotesLabel
         let random1 = Int.random(in: 0...bookQuotes.count-1)
@@ -91,12 +97,56 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     override func viewWillAppear(_ animated: Bool) {
         //recent
         if let thisRecentBook = localRealm.self.objects(UserRecentBook.self).last {
+            recentEmptyView.isHidden = true
             let recentUrl = URL(string: thisRecentBook.image)
             recentImageView.kf.setImage(with: recentUrl)
             recentTitle.text = thisRecentBook.bookTitle
+            recentViewClicked()
         } else {
-            recentTitle.text = "최근 찾아본 책이 없어요"
+            recentEmptyView.isHidden = false
         }
+        
+        recentImageView.layer.borderWidth = 0
+        recentImageView.layer.masksToBounds = false
+        recentImageView.layer.shadowColor = UIColor.gray.cgColor
+        recentImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        recentImageView.layer.shadowOpacity = 0.3
+    }
+    
+    func recentViewClicked() {
+        // 1. create a gesture recognizer (tap gesture)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(goPage(sender:)))
+        // 2. add the gesture recognizer to a view
+        recentView.addGestureRecognizer(gesture)
+    }
+    
+    // 3. this method is called when a tap is recognized
+    @objc func goPage(sender: UITapGestureRecognizer) {
+        // 1. storyboard
+        let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
+        
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
+        
+        if let thisRecentBook = localRealm.self.objects(UserRecentBook.self).last {
+            vc.titleText = thisRecentBook.bookTitle
+            vc.authorText = thisRecentBook.author
+            vc.publisherText = thisRecentBook.publisher
+            vc.imageText = thisRecentBook.image
+            
+            vc.pubDateText = thisRecentBook.pubDate
+            vc.descriptionText = thisRecentBook.descriptionBook
+            
+            vc.customerReviewRank = thisRecentBook.customerReviewRank
+            vc.reviewCount = thisRecentBook.reviewCount
+            vc.priceStandard = thisRecentBook.priceStandard
+            vc.linkText = thisRecentBook.link
+            
+            vc.isbnText = thisRecentBook.isbn
+        }
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func fetchBestSellerData() {
