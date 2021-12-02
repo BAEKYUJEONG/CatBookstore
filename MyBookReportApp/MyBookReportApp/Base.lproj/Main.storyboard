@@ -56,13 +56,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.93532317880000004" green="0.68634068969999995" blue="0.66713553670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="ryQ-44-KTr" kind="relationship" relationship="viewControllers" id="dyE-iM-gaK"/>
                         <segue destination="GJm-hb-7Cn" kind="relationship" relationship="viewControllers" id="2um-ej-qOI"/>
                         <segue destination="nDK-r4-Xwv" kind="relationship" relationship="viewControllers" id="rHz-dV-j14"/>
-                        <segue destination="NyQ-Kd-v97" kind="relationship" relationship="viewControllers" id="FkW-ua-UhR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGP-gE-ncR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

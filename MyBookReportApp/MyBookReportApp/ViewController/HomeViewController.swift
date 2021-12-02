@@ -37,6 +37,10 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     @IBOutlet weak var recentImageView: UIImageView!
     @IBOutlet weak var recentTitle: UILabel!
+    @IBOutlet weak var recentAuthor: UILabel!
+    @IBOutlet weak var recentCustomerReviewRank: UILabel!
+    @IBOutlet weak var recentReviewCount: UILabel!
+    @IBOutlet weak var recentHeartImage: UIImageView!
     @IBOutlet weak var recentView: UIView!
     @IBOutlet weak var recentEmptyView: UIView!
     
@@ -57,9 +61,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         let strDate = format.string(from: date)
         todayDateLabel.text = strDate
         
-        //recent
-        recentViewClicked()
-        
         //bookQuotesLabel
         let random1 = Int.random(in: 0...bookQuotes.count-1)
         bookQuotesLabel.text = bookQuotes[random1]
@@ -69,7 +70,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         let random2 = Int.random(in: 0...bookQuotesImages.count-1)
         let bookQuotesUrl = URL(string: bookQuotesImages[random2])
         bookQuotesImageView.kf.setImage(with: bookQuotesUrl)
-        bookQuotesImageView.layer.cornerRadius = 5
         
         // 행간 조절
         let attrString = NSMutableAttributedString(string: bookQuotesLabel.text!)
@@ -96,11 +96,29 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         //recent
-        if let thisRecentBook = localRealm.self.objects(UserRecentBook.self).last {
+        if let thisRecentBook = localRealm.objects(UserRecentBook.self).last {
             recentEmptyView.isHidden = true
             let recentUrl = URL(string: thisRecentBook.image)
             recentImageView.kf.setImage(with: recentUrl)
             recentTitle.text = thisRecentBook.bookTitle
+            recentAuthor.text = thisRecentBook.author
+            recentCustomerReviewRank.text = String(thisRecentBook.customerReviewRank)+"/10"
+            recentReviewCount.text = String(thisRecentBook.reviewCount)
+            
+            let isbn = thisRecentBook.isbn
+            
+            // 만약에 책이 favoriteBook에 있다면
+            if  localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbn)'") != nil {
+                let rcbook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbn)'")
+                if rcbook.first?.favorite == true {
+                    recentHeartImage.image = UIImage(named: "heart_like")
+                } else {
+                    recentHeartImage.image = UIImage(named: "heart_dislike")
+                }
+            } else {
+                recentHeartImage.image = UIImage(named: "heart_dislike")
+            }
+            
             recentViewClicked()
         } else {
             recentEmptyView.isHidden = false

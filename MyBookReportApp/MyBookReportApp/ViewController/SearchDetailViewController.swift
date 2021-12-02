@@ -115,7 +115,7 @@ class SearchDetailViewController: UIViewController {
         detailPubDate.text = pubDateText
         detailDescription.text = descriptionText
         
-        detailCustomerReviewRank.text = String(describing: customerReviewRank)
+        detailCustomerReviewRank.text = String(describing: customerReviewRank)+"/10"
         let reviewCount = String(describing: reviewCount)
         detailReviewCount.text = "(\(reviewCount)명)"
         detailPriceStandard.text = String(describing: priceStandard)+"원"
