@@ -35,22 +35,22 @@
                                                         <constraint firstAttribute="width" constant="70" id="uif-bL-Npc"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0n-kR-V2S">
+                                                    <rect key="frame" x="130" y="64.333333333333329" width="225" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnD-ZP-yUo">
-                                                    <rect key="frame" x="130" y="92.333333333333329" width="225" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="130" y="92.333333333333329" width="225" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpo-Ob-Oaf">
-                                                    <rect key="frame" x="130" y="119.33333333333333" width="225" height="16.999999999999986"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="130" y="118" width="225" height="15.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0n-kR-V2S">
-                                                    <rect key="frame" x="130" y="62.000000000000007" width="225" height="20.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -81,31 +81,31 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-T6-rEl">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_like" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-UR-TCu">
-                                        <rect key="frame" x="15" y="123" width="375" height="375"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat_heart" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-UR-TCu">
+                                        <rect key="frame" x="62.666666666666657" y="135.66666666666663" width="249.99999999999997" height="250"/>
                                         <color key="tintColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cxC-UR-TCu" secondAttribute="height" multiplier="1:1" id="05S-BF-jWc"/>
-                                            <constraint firstAttribute="height" constant="375" id="a5g-w1-3uW"/>
+                                            <constraint firstAttribute="height" constant="250" id="a5g-w1-3uW"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="책에 대한 좋아요를 눌러볼까냥?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-oq-keY">
-                                        <rect key="frame" x="30" y="370" width="315" height="21"/>
+                                        <rect key="frame" x="30" y="390" width="315" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="X1n-1a-6GR"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="cxC-UR-TCu" firstAttribute="centerX" secondItem="JfK-T6-rEl" secondAttribute="centerX" constant="15" id="4vq-Nl-xPh"/>
-                                    <constraint firstItem="QXv-oq-keY" firstAttribute="centerY" secondItem="JfK-T6-rEl" secondAttribute="centerY" constant="60" id="LQJ-AY-PUV"/>
+                                    <constraint firstItem="cxC-UR-TCu" firstAttribute="centerX" secondItem="JfK-T6-rEl" secondAttribute="centerX" id="4vq-Nl-xPh"/>
+                                    <constraint firstItem="QXv-oq-keY" firstAttribute="centerY" secondItem="JfK-T6-rEl" secondAttribute="centerY" constant="80" id="LQJ-AY-PUV"/>
                                     <constraint firstAttribute="trailing" secondItem="QXv-oq-keY" secondAttribute="trailing" constant="30" id="XgD-Gt-rV6"/>
                                     <constraint firstItem="QXv-oq-keY" firstAttribute="centerX" secondItem="JfK-T6-rEl" secondAttribute="centerX" id="tst-h6-pkC"/>
-                                    <constraint firstItem="cxC-UR-TCu" firstAttribute="centerY" secondItem="JfK-T6-rEl" secondAttribute="centerY" constant="-10" id="yca-ih-RWs"/>
+                                    <constraint firstItem="cxC-UR-TCu" firstAttribute="centerY" secondItem="JfK-T6-rEl" secondAttribute="centerY" constant="-60" id="yca-ih-RWs"/>
                                     <constraint firstItem="QXv-oq-keY" firstAttribute="leading" secondItem="JfK-T6-rEl" secondAttribute="leading" constant="30" id="zWk-wH-EjK"/>
                                 </constraints>
                             </view>
@@ -143,7 +143,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="huS-FW-hZ0">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.69411766529999996" green="0.75294119120000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.93532317880000004" green="0.68634068969999995" blue="0.66713553670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -156,7 +156,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="empty_like" width="2100" height="2100"/>
+        <image name="BookCat_heart" width="960" height="743"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

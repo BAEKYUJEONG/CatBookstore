@@ -109,29 +109,29 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vf-Z6-nyj">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_note" translatesAutoresizingMaskIntoConstraints="NO" id="jju-ue-3df">
-                                        <rect key="frame" x="22.666666666666657" y="139" width="375" height="375"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat_note" translatesAutoresizingMaskIntoConstraints="NO" id="jju-ue-3df">
+                                        <rect key="frame" x="70" y="151.66666666666663" width="250" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="375" id="5im-Pn-RWM"/>
+                                            <constraint firstAttribute="height" constant="250" id="5im-Pn-RWM"/>
                                             <constraint firstAttribute="width" secondItem="jju-ue-3df" secondAttribute="height" multiplier="1:1" id="jc1-nS-WZ0"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="노트를 작성하지 않겠나 자네?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO9-gv-chD">
-                                        <rect key="frame" x="30" y="386" width="330" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="노트를 작성해보지 않겠냥?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO9-gv-chD">
+                                        <rect key="frame" x="30" y="406" width="330" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="vkk-BG-Xky"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="jju-ue-3df" firstAttribute="centerY" secondItem="4Vf-Z6-nyj" secondAttribute="centerY" constant="-10" id="8nZ-eL-Faa"/>
-                                    <constraint firstItem="jO9-gv-chD" firstAttribute="centerY" secondItem="4Vf-Z6-nyj" secondAttribute="centerY" constant="60" id="Eve-Dh-x0h"/>
+                                    <constraint firstItem="jju-ue-3df" firstAttribute="centerY" secondItem="4Vf-Z6-nyj" secondAttribute="centerY" constant="-60" id="8nZ-eL-Faa"/>
+                                    <constraint firstItem="jO9-gv-chD" firstAttribute="centerY" secondItem="4Vf-Z6-nyj" secondAttribute="centerY" constant="80" id="Eve-Dh-x0h"/>
                                     <constraint firstItem="jO9-gv-chD" firstAttribute="leading" secondItem="4Vf-Z6-nyj" secondAttribute="leading" constant="30" id="TdD-AG-7r8"/>
-                                    <constraint firstItem="jju-ue-3df" firstAttribute="centerX" secondItem="4Vf-Z6-nyj" secondAttribute="centerX" constant="15" id="Vza-MT-sJj"/>
+                                    <constraint firstItem="jju-ue-3df" firstAttribute="centerX" secondItem="4Vf-Z6-nyj" secondAttribute="centerX" id="Vza-MT-sJj"/>
                                     <constraint firstItem="jO9-gv-chD" firstAttribute="centerX" secondItem="4Vf-Z6-nyj" secondAttribute="centerX" id="bD9-hi-9kM"/>
                                     <constraint firstAttribute="trailing" secondItem="jO9-gv-chD" secondAttribute="trailing" constant="30" id="wkn-GU-TFd"/>
                                 </constraints>
@@ -170,6 +170,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="KAS-1d-XYN">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.93532317880000004" green="0.68634068969999995" blue="0.66713553670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -182,8 +183,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BookCat_note" width="960" height="743"/>
         <image name="book.fill" catalog="system" width="128" height="95"/>
-        <image name="empty_note" width="2100" height="2100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

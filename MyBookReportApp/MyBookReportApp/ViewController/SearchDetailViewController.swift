@@ -177,7 +177,7 @@ class SearchDetailViewController: UIViewController {
         
         isShowFloating = !isShowFloating
         
-        let image = isShowFloating ? UIImage(named: "plus_circle") : UIImage(named: "plus_circle_float")
+        let image = isShowFloating ? UIImage(named: "plus") : UIImage(named: "plus_float")
         let rotation = isShowFloating ? CGAffineTransform(rotationAngle: .pi - (.pi / 4)) : CGAffineTransform.identity
         
         UIView.animate(withDuration: 0.3) {
@@ -221,7 +221,7 @@ class SearchDetailViewController: UIViewController {
                 if thisBook.first?.favorite == true {
                     thisBook.first?.favorite = false
                     thisBook.first?.writeDate = Date()
-                    heartButton.setImage(UIImage(named: "dislike_circle"), for: .normal)
+                    heartButton.setImage(UIImage(named: "dislike"), for: .normal)
                     
                 } else {
                     thisBook.first?.favorite = true
@@ -239,7 +239,7 @@ class SearchDetailViewController: UIViewController {
         let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
         
         if !thisBook.isEmpty {
-            let image = thisBook.first!.favorite ? UIImage(named: "like_circle") : UIImage(named: "dislike_circle")
+            let image = thisBook.first!.favorite ? UIImage(named: "like_circle") : UIImage(named: "dislike")
             heartButton.setImage(image, for: .normal)
         }
     }
