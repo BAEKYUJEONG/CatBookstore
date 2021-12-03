@@ -70,5 +70,17 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let row = tasks[indexPath.row]
+        
+        try! localRealm.write {
+            localRealm.delete(row)
+            noteTableView.reloadData()
+            if tasks.count == 0 {
+                noteEmptyView.isHidden = false
+            }
+        }
+    }
 }
 
