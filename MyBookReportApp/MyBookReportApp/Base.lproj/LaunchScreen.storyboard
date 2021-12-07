@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat" translatesAutoresizingMaskIntoConstraints="NO" id="eZL-lW-woW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat_Launch" translatesAutoresizingMaskIntoConstraints="NO" id="eZL-lW-woW">
                                 <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eZL-lW-woW" secondAttribute="height" multiplier="1:1" id="gnB-Di-xOC"/>
@@ -25,7 +25,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.97780185939999997" green="0.8795576692" blue="0.86677640680000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.97647058959999999" green="0.85098040100000005" blue="0.85882353779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="eZL-lW-woW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eKb-Ud-ihw"/>
                             <constraint firstItem="eZL-lW-woW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ld5-kl-iBx"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BookCat" width="700" height="700"/>
+        <image name="BookCat_Launch" width="512" height="512"/>
     </resources>
 </document>

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6K-Ru-dUf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-Wx-PAz">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="803"/>
@@ -212,17 +212,26 @@
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fll-0V-vcC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 찾아본 책이 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-1S-AA5">
-                                                                        <rect key="frame" x="127" y="75" width="160.5" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근 검색한 책이 없구만!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-1S-AA5">
+                                                                        <rect key="frame" x="124.5" y="135" width="165" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat_search" translatesAutoresizingMaskIntoConstraints="NO" id="CbA-1K-TfX">
+                                                                        <rect key="frame" x="99" y="7.5" width="216" height="115"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="CbA-1K-TfX" secondAttribute="height" multiplier="15:8" id="P9b-Ed-rnP"/>
+                                                                            <constraint firstAttribute="height" constant="115" id="aDG-TG-chS"/>
+                                                                        </constraints>
+                                                                    </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="CbA-1K-TfX" firstAttribute="centerY" secondItem="fll-0V-vcC" secondAttribute="centerY" constant="-20" id="8mB-h6-7CM"/>
                                                                     <constraint firstItem="G0V-1S-AA5" firstAttribute="centerX" secondItem="fll-0V-vcC" secondAttribute="centerX" id="EfX-Ey-ZVP"/>
-                                                                    <constraint firstItem="G0V-1S-AA5" firstAttribute="centerY" secondItem="fll-0V-vcC" secondAttribute="centerY" id="iCl-gE-e6j"/>
+                                                                    <constraint firstItem="G0V-1S-AA5" firstAttribute="centerY" secondItem="fll-0V-vcC" secondAttribute="centerY" constant="60" id="iCl-gE-e6j"/>
+                                                                    <constraint firstItem="CbA-1K-TfX" firstAttribute="centerX" secondItem="fll-0V-vcC" secondAttribute="centerX" id="snN-lq-dp7"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -397,6 +406,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BookCat_search" width="960" height="743"/>
         <image name="ellipsis.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="heart_dislike" width="1024" height="1024"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

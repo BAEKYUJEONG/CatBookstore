@@ -12,6 +12,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "마이페이지"
         
     }
     
