@@ -21,6 +21,8 @@ class SearchViewController: UIViewController {
     
     var bookData: [BookModel] = []
     
+    @IBOutlet weak var systemLabel: UILabel!
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
@@ -119,6 +121,7 @@ class SearchViewController: UIViewController {
                     
                 case .failure(let error):
                     print("에러",error)
+                    self.systemLabel.isHidden = false
                 }
             }
         }

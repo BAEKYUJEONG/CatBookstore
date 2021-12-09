@@ -92,6 +92,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시스템 정기점검 시간입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDG-1g-1MV">
+                                <rect key="frame" x="87" y="395.66666666666669" width="201" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -101,19 +107,22 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7fA-UY-41n" secondAttribute="bottom" id="Mvb-oB-MuO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7fA-UY-41n" secondAttribute="trailing" id="Uhb-dl-dzb"/>
                             <constraint firstItem="7fA-UY-41n" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Wyg-Y2-fyU"/>
+                            <constraint firstItem="ZDG-1g-1MV" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="b0u-4O-I7p"/>
                             <constraint firstItem="FDM-W1-Soj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cVp-zA-VoP"/>
                             <constraint firstItem="FDM-W1-Soj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hbZ-iQ-kZf"/>
+                            <constraint firstItem="ZDG-1g-1MV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ing-wl-dNi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mrU-10-zgr"/>
                     <connections>
                         <outlet property="searchBar" destination="FDM-W1-Soj" id="Tgz-19-lri"/>
                         <outlet property="searchTableView" destination="7fA-UY-41n" id="g28-aJ-Hur"/>
+                        <outlet property="systemLabel" destination="ZDG-1g-1MV" id="mPd-M6-sJ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="83.705357142857139"/>
+            <point key="canvasLocation" x="892" y="83.497536945812811"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oLG-jL-KbV">

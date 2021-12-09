@@ -64,8 +64,18 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LP-cE-mib" customClass="FSPagerView" customModule="FSPagerView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
+                                                                <subviews>
+                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시스템 정기점검 시간입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auh-n0-3a8">
+                                                                        <rect key="frame" x="106.5" y="124.5" width="201" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="270" id="Xz6-lW-gMQ"/>
+                                                                    <constraint firstItem="Auh-n0-3a8" firstAttribute="centerX" secondItem="4LP-cE-mib" secondAttribute="centerX" id="f5o-bc-2GE"/>
+                                                                    <constraint firstItem="Auh-n0-3a8" firstAttribute="centerY" secondItem="4LP-cE-mib" secondAttribute="centerY" id="tUm-ar-55D"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -376,6 +386,7 @@
                         <outlet property="recentReviewCount" destination="mAV-cA-1Ao" id="gbN-5J-nPj"/>
                         <outlet property="recentTitle" destination="LRU-ZH-oOS" id="DYL-wo-bKk"/>
                         <outlet property="recentView" destination="Arj-Db-HdD" id="hqX-a9-f7V"/>
+                        <outlet property="systemLabel" destination="Auh-n0-3a8" id="mhQ-Up-IGo"/>
                         <outlet property="todayDateLabel" destination="RWG-AB-egn" id="mYc-5k-eRm"/>
                     </connections>
                 </viewController>

@@ -33,6 +33,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         }
     }
     
+    @IBOutlet weak var systemLabel: UILabel!
+    
     @IBOutlet weak var todayDateLabel: UILabel!
     
     @IBOutlet weak var recentImageView: UIImageView!
@@ -225,6 +227,8 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
                 
             case .failure(let error):
                 print("에러", error)
+                self.systemLabel.isHidden = false
+                
             }
         }
     }
