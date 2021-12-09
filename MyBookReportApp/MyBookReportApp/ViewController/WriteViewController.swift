@@ -35,6 +35,14 @@ class WriteViewController: UIViewController {
         //placeholderSetting()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if writeTextView.isEditable {
+            navigationItem.leftBarButtonItem?.customView?.isHidden = true
+        } else {
+            navigationItem.leftBarButtonItem?.customView?.isHidden = false
+        }
+    }
+    
     func contentSetting() {
         if let url = URL(string: imageText) {
             writeImageView.kf.setImage(with: url)
@@ -59,28 +67,38 @@ class WriteViewController: UIViewController {
     @objc func cancelButtonClicked() {
         print("cancel 클릭")
         
-        self.navigationController?.popViewController(animated: true)
-        /*
         if writeTextView.text.isEmpty {
             // 내용이 없다면 닫기
             self.navigationController?.popViewController(animated: true)
         } else {
             // 아니면 alert 문구 띄우고 물어보고 닫기
+            let alert = UIAlertController(title: "닫기", message: "정말로 닫을거냥?", preferredStyle: UIAlertController.Style.alert)
+            let closeAction = UIAlertAction(title: "닫기", style: .default) {_ in
+                self.navigationController?.popViewController(animated: true)
+            }
+            let writeAction = UIAlertAction(title: "이어쓰기", style: .default)
+            
+            alert.addAction(closeAction)
+            alert.addAction(writeAction)
+            
+            present(alert, animated: false, completion: nil)
         }
-        */
+        
     }
     
     @objc func saveButtonClicked() {
         print("save 클릭")
         
-        if writeTextView.text.isEmpty { // 내용이 없다면 알림창뜨고 저장 안하기
+        if writeTextView.text.isEmpty {
+            // 내용이 없다면 알림창뜨고 저장 안하기
             let alert = UIAlertController(title: "내용 없음", message: "내용이 없어 저장이 안된다냥!", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
             
             alert.addAction(okAction)
             present(alert, animated: false, completion: nil)
             
-        } else { // 저장하기
+        } else {
+            // 저장하기
             let nowDate = Date()
             
             let task = UserNote(bookTitle: titleText,

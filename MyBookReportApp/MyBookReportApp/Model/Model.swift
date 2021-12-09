@@ -7,8 +7,6 @@
 
 import Foundation
 
-let numbers: [Int] = [1, 2, 3]
-
 var bookQuotes: [String] = [
     "그 하룻밤, 그 책 한권,\n그 한줄로 혁명이 가능해질지도 모른다.\n- 니체",
     "닫혀있기만 한 책은 블록일 뿐이다.\n- 토마스 풀러",
