@@ -83,7 +83,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         pagerView.delegate = self
         
         fetchBestSellerData()
-        appendArrayList()
         
         tasks = localRealm.objects(UserBestBook.self)
         print("테스크", tasks)
@@ -95,7 +94,10 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //recent
+        recentSetting()
+    }
+    
+    func recentSetting() {
         if let thisRecentBook = localRealm.objects(UserRecentBook.self).last {
             recentEmptyView.isHidden = true
             let recentUrl = URL(string: thisRecentBook.image)
@@ -211,19 +213,19 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
                     
                     try! self.localRealm.write {
                         self.localRealm.add(task)
+                        self.arrayBestSellerCover.append(image)
                     }
                     
+                }
+                
+                DispatchQueue.main.async {
+                    // 중요!
+                    self.pagerView.reloadData()
                 }
                 
             case .failure(let error):
                 print("에러", error)
             }
-        }
-    }
-    
-    func appendArrayList() {
-        for book in localRealm.objects(UserBestBook.self) {
-            arrayBestSellerCover.append(book.image)
         }
     }
     
