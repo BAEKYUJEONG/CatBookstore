@@ -42,6 +42,7 @@
 		6853AB3E274CD5E9007ED148 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3D274CD5E9007ED148 /* Model.swift */; };
 		6853AB40274CEF81007ED148 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */; };
 		6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */; };
+		68DF94CD2769E7AA0083D499 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68DF94CC2769E7AA0083D499 /* GoogleService-Info.plist */; };
 		E2CFB4AEF22EA7187463DA70 /* Pods_MyBookReportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		6853AB3D274CD5E9007ED148 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDetail.storyboard; sourceTree = "<group>"; };
+		68DF94CC2769E7AA0083D499 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBookReportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.release.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				6853AB06274B3D49007ED148 /* Assets.xcassets */,
 				6853AB08274B3D49007ED148 /* LaunchScreen.storyboard */,
 				6853AB0B274B3D49007ED148 /* Info.plist */,
+				68DF94CC2769E7AA0083D499 /* GoogleService-Info.plist */,
 			);
 			path = MyBookReportApp;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68DF94CD2769E7AA0083D499 /* GoogleService-Info.plist in Resources */,
 				6853AB22274B410C007ED148 /* Note.storyboard in Resources */,
 				6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */,
 				6853AB0A274B3D49007ED148 /* LaunchScreen.storyboard in Resources */,
