@@ -13,8 +13,8 @@ pod 'Alamofire', '~> 5.4'
 #pod 'SwiftyJSON'
 pod 'FSPagerView'
 
-pod 'Firebase/Analytics'
-pod 'Firebase/Crashlytics'
-pod 'Firebase/Messaging'
+#pod 'Firebase/Analytics'
+#pod 'Firebase/Crashlytics'
+#pod 'Firebase/Messaging'
 
 end

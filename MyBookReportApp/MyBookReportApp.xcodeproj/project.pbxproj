@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		683D14482760A4760084D406 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D14472760A4760084D406 /* TabViewController.swift */; };
 		68461F4A27538EEA00BA637C /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68461F4927538EEA00BA637C /* WriteViewController.swift */; };
 		68461F4C27538F1300BA637C /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68461F4B27538F1300BA637C /* Write.storyboard */; };
 		68461F4F27546DB200BA637C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68461F4E27546DB200BA637C /* IQKeyboardManagerSwift */; };
@@ -42,13 +41,11 @@
 		6853AB3E274CD5E9007ED148 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3D274CD5E9007ED148 /* Model.swift */; };
 		6853AB40274CEF81007ED148 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */; };
 		6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */; };
-		68DF94CD2769E7AA0083D499 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68DF94CC2769E7AA0083D499 /* GoogleService-Info.plist */; };
 		E2CFB4AEF22EA7187463DA70 /* Pods_MyBookReportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		64827F3127287F567E8D9327 /* Pods-MyBookReportApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.debug.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.debug.xcconfig"; sourceTree = "<group>"; };
-		683D14472760A4760084D406 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		68461F4927538EEA00BA637C /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		68461F4B27538F1300BA637C /* Write.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
 		68461F502754890400BA637C /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -79,7 +76,6 @@
 		6853AB3D274CD5E9007ED148 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDetail.storyboard; sourceTree = "<group>"; };
-		68DF94CC2769E7AA0083D499 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBookReportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.release.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,7 +147,6 @@
 				6853AB06274B3D49007ED148 /* Assets.xcassets */,
 				6853AB08274B3D49007ED148 /* LaunchScreen.storyboard */,
 				6853AB0B274B3D49007ED148 /* Info.plist */,
-				68DF94CC2769E7AA0083D499 /* GoogleService-Info.plist */,
 			);
 			path = MyBookReportApp;
 			sourceTree = "<group>";
@@ -159,7 +154,6 @@
 		6853AB15274B3E2F007ED148 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				683D14472760A4760084D406 /* TabViewController.swift */,
 				6853AB11274B3D89007ED148 /* HomeViewController.swift */,
 				6853AB13274B3E1D007ED148 /* FavoriteViewController.swift */,
 				6853AB23274B4A3B007ED148 /* FavoriteTableViewCell.swift */,
@@ -282,7 +276,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68DF94CD2769E7AA0083D499 /* GoogleService-Info.plist in Resources */,
 				6853AB22274B410C007ED148 /* Note.storyboard in Resources */,
 				6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */,
 				6853AB0A274B3D49007ED148 /* LaunchScreen.storyboard in Resources */,
@@ -353,7 +346,6 @@
 				6853AB3E274CD5E9007ED148 /* Model.swift in Sources */,
 				6853AB3C274C0671007ED148 /* RealmModel.swift in Sources */,
 				6853AB2B274B4F7F007ED148 /* SearchViewController.swift in Sources */,
-				683D14482760A4760084D406 /* TabViewController.swift in Sources */,
 				68461F4A27538EEA00BA637C /* WriteViewController.swift in Sources */,
 				6853AB1E274B3F27007ED148 /* MyPageViewController.swift in Sources */,
 				68461F512754890400BA637C /* NoteTableViewCell.swift in Sources */,
@@ -514,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4YMA7W8T46;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyBookReportApp/Info.plist;
@@ -531,7 +523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyujeong.MyBookReportApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -549,7 +541,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4YMA7W8T46;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyBookReportApp/Info.plist;
@@ -566,7 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyujeong.MyBookReportApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

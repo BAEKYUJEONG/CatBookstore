@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="354" y="463"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="KIx-7X-2KA">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" id="g2d-zX-VZ4" customClass="TabViewController" customModule="MyBookReportApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g2d-zX-VZ4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y6q-gE-NfF">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

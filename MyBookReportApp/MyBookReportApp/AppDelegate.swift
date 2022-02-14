@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 import IQKeyboardManagerSwift
 
 @main
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //Firebase 초기화, 공유 인스턴스 생성
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
         
         IQKeyboardManager.shared.enable = true
         sleep(1)
