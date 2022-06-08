@@ -72,6 +72,9 @@ class SearchDetailViewController: UIViewController {
         contentSetting()
         imageSetting()
         
+        let floatingDimViewGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(floatingDimViewSetting(_:)))
+        floatingDimView.addGestureRecognizer(floatingDimViewGesture)
+        
         tasks = localRealm.objects(UserRecentBook.self)
         print("테스크", tasks)
         print(localRealm.configuration.fileURL)
@@ -95,7 +98,6 @@ class SearchDetailViewController: UIViewController {
     }
     
     func contentSetting() {
-        
         if let url = URL(string: imageText) {
             detailImageView.kf.setImage(with: url)
         } else {
@@ -123,6 +125,41 @@ class SearchDetailViewController: UIViewController {
         detailLink.layer.cornerRadius = 5
     }
     
+    func imageSetting() {
+        let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
+        
+        if !thisBook.isEmpty {
+            let image = thisBook.first!.favorite ? UIImage(named: "like_circle") : UIImage(named: "dislike")
+            heartButton.setImage(image, for: .normal)
+        }
+    }
+    
+    @objc func floatingDimViewSetting(_ gesture: UITapGestureRecognizer) {
+        // floating 버튼 하나만 보이게 하기
+        buttons.reversed().forEach { button in
+            UIView.animate(withDuration: 0.3) {
+                button.isHidden = true
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.floatingDimView.alpha = 0
+        }) { (_) in
+            self.floatingDimView.isHidden = true
+        }
+        
+        isShowFloating = !isShowFloating
+        
+        let image = isShowFloating ? UIImage(named: "plus") : UIImage(named: "plus_float")
+        let rotation = isShowFloating ? CGAffineTransform(rotationAngle: .pi - (.pi / 4)) : CGAffineTransform.identity
+        
+        UIView.animate(withDuration: 0.3) { [self] in
+            self.floatingButton.setImage(image, for: .normal)
+            self.floatingButton.transform = rotation
+        }
+    }
+    
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         print("link button click!")
         
@@ -139,8 +176,7 @@ class SearchDetailViewController: UIViewController {
     }
     
     @IBAction func floatingButtonClicked(_ sender: UIButton) {
-        
-        if isShowFloating {
+        if isShowFloating { // true 일때 (floating 버튼이 보이는 상태) : floating 버튼 하나만 보이게 하기
             
             buttons.reversed().forEach { button in
                 UIView.animate(withDuration: 0.3) {
@@ -155,7 +191,7 @@ class SearchDetailViewController: UIViewController {
                 self.floatingDimView.isHidden = true
             }
             
-        } else {
+        } else { // false 일때 : floating 버튼을 펼치기
             
             buttons.forEach { [weak self] button in
                 button.isHidden = false
@@ -205,7 +241,6 @@ class SearchDetailViewController: UIViewController {
                             isbn: isbnText)
         
         try! localRealm.write {
-            
             let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
 
             print("디스북", thisBook)
@@ -231,16 +266,6 @@ class SearchDetailViewController: UIViewController {
                 
                 print("하트 상태", thisBook.first?.favorite)
             }
-        }
-        
-    }
-    
-    func imageSetting() {
-        let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
-        
-        if !thisBook.isEmpty {
-            let image = thisBook.first!.favorite ? UIImage(named: "like_circle") : UIImage(named: "dislike")
-            heartButton.setImage(image, for: .normal)
         }
     }
     
