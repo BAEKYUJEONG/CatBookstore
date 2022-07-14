@@ -19,9 +19,11 @@ class WriteViewController: UIViewController {
     @IBOutlet weak var writeAuthor: UILabel!
     @IBOutlet weak var writeDate: UILabel!
     
-    var imageText: String = ""
+    var userNote = UserNote()
+    var noteText: String = ""
     var titleText: String  = ""
     var authorText: String = ""
+    var imageText: String = ""
     var isbnText: String = ""
     
     override func viewDidLoad() {
@@ -53,15 +55,20 @@ class WriteViewController: UIViewController {
         writeTitle.text = titleText
         writeAuthor.text = authorText
         
-        let nowDate = Date()
         let format = DateFormatter()
         format.dateFormat = "yyyy년 M월 d일 a HH:mm"
         format.locale = Locale(identifier:"ko_KR")
-        let strDate = format.string(from: nowDate)
-        writeDate.text = strDate
         
         writeTextView.layer.cornerRadius = 10
         writeTextView.font = UIFont(name: "나눔손글씨 백의의 천사", size: 22)
+        
+        if !noteText.isEmpty {
+            writeTextView.text = noteText
+            writeDate.text = format.string(from: userNote.writeDate)
+        } else {
+            let strDate = format.string(from: Date())
+            writeDate.text = strDate
+        }
     }
     
     @objc func cancelButtonClicked() {
@@ -98,18 +105,28 @@ class WriteViewController: UIViewController {
             present(alert, animated: false, completion: nil)
             
         } else {
-            // 저장하기
-            let nowDate = Date()
-            
-            let task = UserNote(bookTitle: titleText,
-                                author: authorText,
-                                image: imageText,
-                                note: writeTextView.text!,
-                                writeDate: nowDate,
-                                isbn: isbnText)
-            
-            try! localRealm.write {
-                localRealm.add(task)
+            if noteText.isEmpty {
+                // 저장하기
+                let nowDate = Date()
+                
+                let task = UserNote(bookTitle: titleText,
+                                    author: authorText,
+                                    image: imageText,
+                                    note: writeTextView.text!,
+                                    writeDate: nowDate,
+                                    isbn: isbnText)
+                
+                try! localRealm.write {
+                    localRealm.add(task)
+                }
+            } else {
+                // 수정하기
+                guard let oldNote = localRealm.object(ofType: UserNote.self, forPrimaryKey: userNote._id) else { return }
+                
+                try? localRealm.write {
+                    oldNote.note = writeTextView.text
+                    localRealm.add(oldNote, update: .modified)
+                }
             }
             
             self.navigationController?.popViewController(animated: true)

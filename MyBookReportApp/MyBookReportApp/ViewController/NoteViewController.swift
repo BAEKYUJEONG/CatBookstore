@@ -10,10 +10,11 @@ import RealmSwift
 
 class NoteViewController: UIViewController {
 
+    static let identifier = "NoteViewController"
+    let localRealm = try! Realm()
+    
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var noteEmptyView: UIView!
-    
-    let localRealm = try! Realm()
     
     var tasks: Results<UserNote>!
     
@@ -79,7 +80,8 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
         
         let row = tasks[indexPath.row]
         
-        print(row.bookTitle, "here is here")
+        vc.userNote = row
+        vc.noteText = row.note
         vc.titleText = row.bookTitle
         vc.authorText = row.author
         vc.imageText = row.image
