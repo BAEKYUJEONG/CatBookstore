@@ -94,7 +94,7 @@
                                                 <constraint firstItem="Jas-v1-5Qv" firstAttribute="top" secondItem="A5L-cM-zgB" secondAttribute="bottom" constant="20" id="yNy-xs-Ezf"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="600" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="200" minY="0.0" maxX="200" maxY="0.0"/>
                                         <connections>
                                             <outlet property="noteAuthor" destination="le7-60-gqV" id="AK9-KN-YcQ"/>
                                             <outlet property="noteContent" destination="Aef-gT-kq5" id="qGn-ia-7dZ"/>

@@ -93,6 +93,17 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+        print(row.bookTitle, "here is here")
+        vc.titleText = row.bookTitle
+        vc.authorText = row.author
+        vc.imageText = row.image
+        vc.isbnText = row.isbn
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let row = tasks[indexPath.row]
         
         try! localRealm.write {
