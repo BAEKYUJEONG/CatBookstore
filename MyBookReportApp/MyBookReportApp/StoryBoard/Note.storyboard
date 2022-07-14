@@ -94,7 +94,7 @@
                                                 <constraint firstItem="Jas-v1-5Qv" firstAttribute="top" secondItem="A5L-cM-zgB" secondAttribute="bottom" constant="20" id="yNy-xs-Ezf"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="600" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="200" minY="0.0" maxX="200" maxY="0.0"/>
                                         <connections>
                                             <outlet property="noteAuthor" destination="le7-60-gqV" id="AK9-KN-YcQ"/>
                                             <outlet property="noteContent" destination="Aef-gT-kq5" id="qGn-ia-7dZ"/>
@@ -184,7 +184,7 @@
     </scenes>
     <resources>
         <image name="BookCat_note" width="960" height="743"/>
-        <image name="book.fill" catalog="system" width="32" height="32"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

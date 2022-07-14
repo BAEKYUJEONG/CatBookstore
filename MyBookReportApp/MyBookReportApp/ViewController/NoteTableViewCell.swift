@@ -53,5 +53,4 @@ class NoteTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-
 }
