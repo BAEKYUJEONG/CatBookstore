@@ -93,6 +93,8 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+        let row = tasks[indexPath.row]
+        
         print(row.bookTitle, "here is here")
         vc.titleText = row.bookTitle
         vc.authorText = row.author
