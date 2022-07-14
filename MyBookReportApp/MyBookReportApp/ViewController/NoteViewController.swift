@@ -10,10 +10,11 @@ import RealmSwift
 
 class NoteViewController: UIViewController {
 
+    static let identifier = "NoteViewController"
+    let localRealm = try! Realm()
+    
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var noteEmptyView: UIView!
-    
-    let localRealm = try! Realm()
     
     var tasks: Results<UserNote>!
     
@@ -68,6 +69,26 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 1. storyboard
+        let sb = UIStoryboard(name: "Write", bundle: nil)
+        
+        // 2. viewcontroller
+        let vc = sb.instantiateViewController(withIdentifier: WriteViewController.identifier) as! WriteViewController
+        
+        let row = tasks[indexPath.row]
+        
+        vc.userNote = row
+        vc.noteText = row.note
+        vc.titleText = row.bookTitle
+        vc.authorText = row.author
+        vc.imageText = row.image
+        vc.isbnText = row.isbn
+        
+        // 3. Push
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

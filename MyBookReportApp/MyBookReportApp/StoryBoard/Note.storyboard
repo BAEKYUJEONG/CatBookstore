@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="50" indentationWidth="50" reuseIdentifier="NoteTableViewCell" rowHeight="268" id="3dR-FJ-Okt" customClass="NoteTableViewCell" customModule="MyBookReportApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="50" indentationWidth="50" reuseIdentifier="NoteTableViewCell" rowHeight="268" id="3dR-FJ-Okt" customClass="NoteTableViewCell" customModule="MyBookReportApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="268"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3dR-FJ-Okt" id="ahs-VU-crf">
@@ -184,7 +184,7 @@
     </scenes>
     <resources>
         <image name="BookCat_note" width="960" height="743"/>
-        <image name="book.fill" catalog="system" width="32" height="32"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
