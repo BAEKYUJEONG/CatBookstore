@@ -16,13 +16,10 @@ class SearchViewController: UIViewController {
     static let identifier = "SearchViewController"
     
     let localRealm = try! Realm()
-    
     var tasks: Results<UserBook>!
-    
     var bookData: [BookModel] = []
     
     @IBOutlet weak var systemLabel: UILabel!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
@@ -34,16 +31,13 @@ class SearchViewController: UIViewController {
         
         searchTableView.delegate = self
         searchTableView.dataSource = self
-        
-        // UITableViewDataSourePrefetching 프로토콜
         searchTableView.prefetchDataSource = self
-        
         searchBar.delegate = self
-        //searchBar.showsCancelButton = true
         
         showKeyboard()
         
         title = "책 검색"
+        
         tasks = localRealm.objects(UserBook.self)
         print("테스크", tasks)
         print(localRealm.configuration.fileURL)
@@ -58,8 +52,7 @@ class SearchViewController: UIViewController {
     func showKeyboard() {
         searchBar.becomeFirstResponder()
     }
-    
-    
+        
     // 인터파크 책 네트워크 통신
     func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
@@ -105,17 +98,13 @@ class SearchViewController: UIViewController {
                                             favorite: false,
                                             now: false,
                                             isbn: isbn)
-                        //let data = BookModel(titleData: bookTitle, authorData: author, publisherData: publisher, imageData: image)
                         
                         try! self.localRealm.write {
                             self.localRealm.add(task)
                         }
-                        //self.bookData.append(data)
-                        
                     }
                     
                     DispatchQueue.main.async {
-                        // 중요!
                         self.searchTableView.reloadData()
                     }
                     
@@ -244,7 +233,6 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
         }
     }
     
-    // 취소
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         print("취소:\(indexPaths)")
     }
@@ -260,7 +248,6 @@ extension SearchViewController: UISearchBarDelegate {
             try! localRealm.write {
                 localRealm.delete(localRealm.objects(UserBook.self))
             }
-            //bookData.removeAll()
             startPage = 1
             fetchBookData(query: text)
         }
@@ -290,7 +277,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
-        //bookData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -300,7 +286,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let row = tasks[indexPath.row]
-        //bookData[indexPath.row]
         
         if let url = URL(string: row.image) {
             cell.bookImageView.kf.setImage(with: url)
@@ -319,10 +304,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // 1. storyboard
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
         
         let row = tasks[indexPath.row]
@@ -343,7 +325,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         vc.isbnText = row.isbn
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

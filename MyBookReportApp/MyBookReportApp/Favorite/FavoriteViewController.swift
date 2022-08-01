@@ -84,11 +84,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // 1. storyboard
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
         
         let row = tasks[indexPath.row]
@@ -109,7 +105,6 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
         
         vc.isbnText = row.isbn
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

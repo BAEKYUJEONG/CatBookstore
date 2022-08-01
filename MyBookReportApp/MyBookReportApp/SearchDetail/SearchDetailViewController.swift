@@ -62,9 +62,7 @@ class SearchDetailViewController: UIViewController {
     }()
     
     var isShowFloating: Bool = false
-    
     lazy var buttons: [UIButton] = [self.heartButton, self.pencilButton]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +116,7 @@ class SearchDetailViewController: UIViewController {
         detailDescription.text = descriptionText
         
         detailCustomerReviewRank.text = String(describing: customerReviewRank)+"/10"
+        
         let reviewCount = String(describing: reviewCount)
         detailReviewCount.text = "(\(reviewCount)명)"
         detailPriceStandard.text = String(describing: priceStandard)+"원"
@@ -161,23 +160,16 @@ class SearchDetailViewController: UIViewController {
     }
     
     @IBAction func linkButtonClicked(_ sender: UIButton) {
-        print("link button click!")
-        
-        // 1. storyboard
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: WebViewController.identifier) as! WebViewController
         
         vc.linkText = linkText
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func floatingButtonClicked(_ sender: UIButton) {
         if isShowFloating { // true 일때 (floating 버튼이 보이는 상태) : floating 버튼 하나만 보이게 하기
-            
             buttons.reversed().forEach { button in
                 UIView.animate(withDuration: 0.3) {
                     button.isHidden = true
@@ -190,9 +182,7 @@ class SearchDetailViewController: UIViewController {
             }) { (_) in
                 self.floatingDimView.isHidden = true
             }
-            
         } else { // false 일때 : floating 버튼을 펼치기
-            
             buttons.forEach { [weak self] button in
                 button.isHidden = false
                 button.alpha = 0
@@ -208,7 +198,6 @@ class SearchDetailViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.floatingDimView.alpha = 1
             }
-            
         }
         
         isShowFloating = !isShowFloating
@@ -223,8 +212,6 @@ class SearchDetailViewController: UIViewController {
     }
     
     @IBAction func heartButtonClicked(_ sender: UIButton) {
-        print("하트 버튼 클릭")
-        
         let task = UserFavoriteBook(bookTitle: detailTitle.text!,
                             author: detailAuthor.text!,
                             publisher: detailPublisher.text!,
@@ -252,7 +239,7 @@ class SearchDetailViewController: UIViewController {
                 heartButton.setImage(UIImage(named: "like_circle"), for: .normal)
             } else {
                 // 책이 전에 favorite 컬럼에 있으면 찾아서 상태 바꿔주기
-                // 어차피 같은 책은 하나밖에 없어서 first로 하면 하나 있는거 나온다.
+                // 어차피 같은 책은 하나밖에 없어서 first로 하면 하나 있는거 나옴
                 if thisBook.first?.favorite == true {
                     thisBook.first?.favorite = false
                     thisBook.first?.writeDate = Date()
@@ -263,19 +250,12 @@ class SearchDetailViewController: UIViewController {
                     thisBook.first?.writeDate = Date()
                     heartButton.setImage(UIImage(named: "like_circle"), for: .normal)
                 }
-                
-                print("하트 상태", thisBook.first?.favorite)
             }
         }
     }
     
     @IBAction func pencilButtonClicked(_ sender: UIButton) {
-        print("펜슬 버튼 클릭")
-        
-        // 1. storyboard
         let sb = UIStoryboard(name: "Write", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: WriteViewController.identifier) as! WriteViewController
         
         vc.titleText = titleText
@@ -283,7 +263,6 @@ class SearchDetailViewController: UIViewController {
         vc.imageText = imageText
         vc.isbnText = isbnText
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

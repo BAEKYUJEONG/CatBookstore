@@ -13,8 +13,5 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         title = "마이페이지"
-        
     }
-    
-
 }

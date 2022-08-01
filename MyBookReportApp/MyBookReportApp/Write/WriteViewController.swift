@@ -34,7 +34,6 @@ class WriteViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
         
         contentSetting()
-        //placeholderSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,12 +89,9 @@ class WriteViewController: UIViewController {
             
             present(alert, animated: false, completion: nil)
         }
-        
     }
     
     @objc func saveButtonClicked() {
-        print("save 클릭")
-        
         if writeTextView.text.isEmpty {
             // 내용이 없다면 알림창뜨고 저장 안하기
             let alert = UIAlertController(title: "내용 없음", message: "내용이 없어 저장이 안된다냥!", preferredStyle: UIAlertController.Style.alert)
@@ -134,38 +130,12 @@ class WriteViewController: UIViewController {
         
         /*
         if writeTextView.text == "노트를 작성해주세요." {
-            // 저장 안하기
-            // 내용이 없다는 alert
-            // 페이지 넘어가지 않기
+             저장 안하기
+             내용이 없다는 alert
+             페이지 넘어가지 않기
         } else {
-            // 저장하기
+             저장하기
         }
         */
     }
 }
-
-/*
-extension WriteViewController: UITextViewDelegate {
-    
-    func placeholderSetting() {
-        writeTextView.delegate = self
-        writeTextView.text = "노트를 작성해주세요."
-        writeTextView.textColor = UIColor.lightGray
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if writeTextView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if writeTextView.text.isEmpty {
-            writeTextView.text = "노트를 작성해주세요."
-            textView.textColor = UIColor.gray
-        }
-    }
-    
-}
-*/

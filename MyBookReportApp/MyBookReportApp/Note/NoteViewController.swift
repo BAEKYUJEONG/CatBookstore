@@ -44,7 +44,6 @@ class NoteViewController: UIViewController {
             noteEmptyView.isHidden = true
         }
     }
-    
 }
 
 extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
@@ -72,10 +71,7 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 1. storyboard
         let sb = UIStoryboard(name: "Write", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: WriteViewController.identifier) as! WriteViewController
         
         let row = tasks[indexPath.row]
@@ -87,7 +83,6 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
         vc.imageText = row.image
         vc.isbnText = row.isbn
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -103,4 +98,3 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-

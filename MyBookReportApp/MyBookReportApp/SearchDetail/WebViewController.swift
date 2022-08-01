@@ -19,13 +19,10 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
         
         guard let url = URL(string: linkText) else {
-            print("ERROR")
             return
         }
         
         let request = URLRequest(url: url)
         webView.load(request)
     }
-  
-
 }

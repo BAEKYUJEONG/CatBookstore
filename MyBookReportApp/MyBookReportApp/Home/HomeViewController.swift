@@ -25,7 +25,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
             self.pagerView.transformer = FSPagerViewTransformer(type: .ferrisWheel)
             self.pagerView.itemSize = CGSize(width: 130, height: 195)
-            //self.pagerView.interitemSpacing = 10
             self.pagerView.isInfinite = true
             self.pagerView.contentMode = .scaleAspectFit
             self.pagerView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
@@ -136,18 +135,12 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     }
     
     func recentViewClicked() {
-        // 1. create a gesture recognizer (tap gesture)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(goPage(sender:)))
-        // 2. add the gesture recognizer to a view
         recentView.addGestureRecognizer(gesture)
     }
     
-    // 3. this method is called when a tap is recognized
     @objc func goPage(sender: UITapGestureRecognizer) {
-        // 1. storyboard
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
         
         if let thisRecentBook = localRealm.self.objects(UserRecentBook.self).last {
@@ -167,7 +160,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
             vc.isbnText = thisRecentBook.isbn
         }
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -217,18 +209,15 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
                         self.localRealm.add(task)
                         self.arrayBestSellerCover.append(image)
                     }
-                    
                 }
                 
                 DispatchQueue.main.async {
-                    // 중요!
                     self.pagerView.reloadData()
                 }
                 
             case .failure(let error):
-                print("에러", error)
+                print(error.localizedDescription)
                 self.systemLabel.isHidden = false
-                
             }
         }
     }
@@ -251,15 +240,11 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        // 셀이 선택 되었을 때
-        
-        // 1. storyboard
         let sb = UIStoryboard(name: "SearchDetail", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: SearchDetailViewController.identifier) as! SearchDetailViewController
         
         let row = tasks[index]
+        
         vc.titleText = row.bookTitle
         vc.authorText = row.author
         vc.publisherText = row.publisher
@@ -277,26 +262,16 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         vc.isbnText = row.isbn
         
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
 
 extension HomeViewController: UISearchBarDelegate {
     
-    // 커서가 깜빡이기 시작할 때 -> 클릭했을 때 처럼 보임!!
+    // 커서가 깜빡이기 시작할 때
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print(#function)
-        
-        // 1. storyboard
         let sb = UIStoryboard(name: "Search", bundle: nil)
-        
-        // 2. viewcontroller
         let vc = sb.instantiateViewController(withIdentifier: SearchViewController.identifier) as! SearchViewController
-        
-        // 3. Push
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }

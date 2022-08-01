@@ -27,7 +27,6 @@ class UserBook: Object {
     @Persisted var favorite: Bool // 즐겨찾기
     @Persisted var now: Bool // 현재 읽고 있는 책
     
-    // 중요!
     @Persisted var isbn: String // 책 주민등록번호
     
     // PK (필수) : Int, String, UUID, ObjectID -> AutoIncrement
@@ -77,7 +76,6 @@ class UserFavoriteBook: Object {
     @Persisted var now: Bool // 현재 읽고 있는 책
     @Persisted var writeDate = Date() // 등록일
     
-    // 중요!
     @Persisted var isbn: String // 책 주민등록번호
     
     // PK (필수) : Int, String, UUID, ObjectID -> AutoIncrement
@@ -118,7 +116,6 @@ class UserNote: Object {
     @Persisted var note: String // 노트 내용
     @Persisted var writeDate = Date() // 노트 등록일
     
-    // 중요!
     @Persisted var isbn: String // 책 주민등록번호
     
     // PK (필수) : Int, String, UUID, ObjectID -> AutoIncrement
@@ -158,7 +155,6 @@ class UserBestBook: Object {
     @Persisted var favorite: Bool // 즐겨찾기
     @Persisted var now: Bool // 현재 읽고 있는 책
     
-    // 중요!
     @Persisted var isbn: String // 책 주민등록번호
     
     // PK (필수) : Int, String, UUID, ObjectID -> AutoIncrement
