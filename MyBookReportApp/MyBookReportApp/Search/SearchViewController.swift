@@ -65,7 +65,6 @@ class SearchViewController: UIViewController {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    print("JSON: \(json)")
                     
                     self.totalCount = json["totalResults"].intValue
                     
@@ -109,7 +108,7 @@ class SearchViewController: UIViewController {
                     }
                     
                 case .failure(let error):
-                    print("에러",error)
+                    print(error.localizedDescription)
                     self.systemLabel.isHidden = false
                 }
             }
@@ -327,5 +326,4 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
