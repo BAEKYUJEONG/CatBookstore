@@ -136,51 +136,33 @@
 		6853AAFC274B3D47007ED148 /* MyBookReportApp */ = {
 			isa = PBXGroup;
 			children = (
-				684DEA532755450900FDC45D /* Font */,
 				6853AB3A274C065F007ED148 /* Model */,
-				6853AB15274B3E2F007ED148 /* ViewController */,
-				6853AB16274B3EBB007ED148 /* StoryBoard */,
+				68DCCD7D2897B56100EB45B3 /* Home */,
+				68DCCD7E2897B5A900EB45B3 /* Favorite */,
+				68DCCD7F2897B5F400EB45B3 /* Note */,
+				68DCCD812897B67B00EB45B3 /* MyPage */,
+				68DCCD802897B63400EB45B3 /* Search */,
+				68DCCD822897B6C300EB45B3 /* SearchDetail */,
+				6853AB15274B3E2F007ED148 /* Write */,
+				684DEA532755450900FDC45D /* Font */,
 				6853AAFD274B3D47007ED148 /* AppDelegate.swift */,
 				6853AAFF274B3D47007ED148 /* SceneDelegate.swift */,
 				6853AB01274B3D47007ED148 /* ViewController.swift */,
 				6853AB03274B3D47007ED148 /* Main.storyboard */,
-				6853AB06274B3D49007ED148 /* Assets.xcassets */,
 				6853AB08274B3D49007ED148 /* LaunchScreen.storyboard */,
+				6853AB06274B3D49007ED148 /* Assets.xcassets */,
 				6853AB0B274B3D49007ED148 /* Info.plist */,
 			);
 			path = MyBookReportApp;
 			sourceTree = "<group>";
 		};
-		6853AB15274B3E2F007ED148 /* ViewController */ = {
+		6853AB15274B3E2F007ED148 /* Write */ = {
 			isa = PBXGroup;
 			children = (
-				6853AB11274B3D89007ED148 /* HomeViewController.swift */,
-				6853AB13274B3E1D007ED148 /* FavoriteViewController.swift */,
-				6853AB23274B4A3B007ED148 /* FavoriteTableViewCell.swift */,
-				6853AB1F274B40F1007ED148 /* NoteViewController.swift */,
-				68461F502754890400BA637C /* NoteTableViewCell.swift */,
-				6853AB1D274B3F27007ED148 /* MyPageViewController.swift */,
-				6853AB2A274B4F7F007ED148 /* SearchViewController.swift */,
-				6853AB2E274B812D007ED148 /* SearchTableViewCell.swift */,
-				6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */,
 				68461F4927538EEA00BA637C /* WriteViewController.swift */,
-				684DEA5A275627BC00FDC45D /* WebViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		6853AB16274B3EBB007ED148 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				6853AB17274B3ED7007ED148 /* Home.storyboard */,
-				6853AB19274B3EE8007ED148 /* Favorite.storyboard */,
-				6853AB21274B410C007ED148 /* Note.storyboard */,
-				6853AB1B274B3F16007ED148 /* MyPage.storyboard */,
-				6853AB2C274B4F96007ED148 /* Search.storyboard */,
-				6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */,
 				68461F4B27538F1300BA637C /* Write.storyboard */,
 			);
-			path = StoryBoard;
+			path = Write;
 			sourceTree = "<group>";
 		};
 		6853AB3A274C065F007ED148 /* Model */ = {
@@ -190,6 +172,64 @@
 				6853AB3D274CD5E9007ED148 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		68DCCD7D2897B56100EB45B3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB11274B3D89007ED148 /* HomeViewController.swift */,
+				6853AB17274B3ED7007ED148 /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		68DCCD7E2897B5A900EB45B3 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB13274B3E1D007ED148 /* FavoriteViewController.swift */,
+				6853AB23274B4A3B007ED148 /* FavoriteTableViewCell.swift */,
+				6853AB19274B3EE8007ED148 /* Favorite.storyboard */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		68DCCD7F2897B5F400EB45B3 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB1F274B40F1007ED148 /* NoteViewController.swift */,
+				68461F502754890400BA637C /* NoteTableViewCell.swift */,
+				6853AB21274B410C007ED148 /* Note.storyboard */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		68DCCD802897B63400EB45B3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB2A274B4F7F007ED148 /* SearchViewController.swift */,
+				6853AB2E274B812D007ED148 /* SearchTableViewCell.swift */,
+				6853AB2C274B4F96007ED148 /* Search.storyboard */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		68DCCD812897B67B00EB45B3 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB1D274B3F27007ED148 /* MyPageViewController.swift */,
+				6853AB1B274B3F16007ED148 /* MyPage.storyboard */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		68DCCD822897B6C300EB45B3 /* SearchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */,
+				684DEA5A275627BC00FDC45D /* WebViewController.swift */,
+				6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */,
+			);
+			path = SearchDetail;
 			sourceTree = "<group>";
 		};
 		F2B8D13868BF1C78A1625CA8 /* Pods */ = {
