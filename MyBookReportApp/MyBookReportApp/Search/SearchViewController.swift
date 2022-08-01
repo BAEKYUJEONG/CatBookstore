@@ -227,7 +227,6 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
             if tasks.count - 1 == indexPath.row && tasks.count < totalCount {
                 startPage += 10
                 fetchBookData(query: searchBar.text!)
-                print("prefetch:\(indexPath)")
             }
         }
     }

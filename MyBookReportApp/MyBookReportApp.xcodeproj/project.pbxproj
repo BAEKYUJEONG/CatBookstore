@@ -42,6 +42,7 @@
 		6853AB40274CEF81007ED148 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */; };
 		6853AB42274CEF9A007ED148 /* SearchDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */; };
 		68DCCD862897C21500EB45B3 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DCCD852897C21500EB45B3 /* EndPoint.swift */; };
+		68DCCD8A2897CF4D00EB45B3 /* BookAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DCCD892897CF4D00EB45B3 /* BookAPIService.swift */; };
 		E2CFB4AEF22EA7187463DA70 /* Pods_MyBookReportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		6853AB3F274CEF81007ED148 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		6853AB41274CEF9A007ED148 /* SearchDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDetail.storyboard; sourceTree = "<group>"; };
 		68DCCD852897C21500EB45B3 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		68DCCD892897CF4D00EB45B3 /* BookAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPIService.swift; sourceTree = "<group>"; };
 		C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBookReportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.release.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				68DCCD852897C21500EB45B3 /* EndPoint.swift */,
+				68DCCD892897CF4D00EB45B3 /* BookAPIService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6853AB20274B40F1007ED148 /* NoteViewController.swift in Sources */,
+				68DCCD8A2897CF4D00EB45B3 /* BookAPIService.swift in Sources */,
 				6853AB24274B4A3B007ED148 /* FavoriteTableViewCell.swift in Sources */,
 				6853AB02274B3D47007ED148 /* ViewController.swift in Sources */,
 				6853AB3E274CD5E9007ED148 /* Model.swift in Sources */,
