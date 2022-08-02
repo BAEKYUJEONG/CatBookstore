@@ -12,9 +12,9 @@ import SwiftyJSON
 final class BookAPIService {
     
     func getBook(_ text: String, _ startPage: Int, _ completion: @escaping (Result<JSON, Error>) -> Void) {
-        let url = EndPoint.getBook(text, startPage)
+        let url = EndPoint.getBook(text, startPage).url.absoluteString
         
-        AF.request(url as! URLConvertible, method: .get).validate().responseJSON { response in
+        AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
