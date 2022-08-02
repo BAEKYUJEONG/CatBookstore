@@ -14,6 +14,7 @@ import RealmSwift
 class SearchViewController: UIViewController {
 
     static let identifier = "SearchViewController"
+    private var viewModel = SearchViewModel()
     
     let localRealm = try! Realm()
     var tasks: Results<UserBook>!
@@ -49,12 +50,16 @@ class SearchViewController: UIViewController {
         searchTableView.reloadData()
     }
     
-    func showKeyboard() {
+    private func bind(_ viewModel: SearchViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    private func showKeyboard() {
         searchBar.becomeFirstResponder()
     }
         
     // 인터파크 책 네트워크 통신
-    func fetchBookData(query: String) {
+    private func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             
             let key = "195C74CC11F90BF250E1A5B4F89FA5FC997F3C9AB7F2F3DA1272D342B5B5DB8D"
