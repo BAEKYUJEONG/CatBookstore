@@ -12,7 +12,7 @@ final class SearchViewModel {
     
     private let bookAPIService = BookAPIService()
     
-    func getBook(_ text: String, _ startPage: Int) -> (Int, UserBook) {
+    func getBook(_ text: String, _ startPage: Int, _ completion: @escaping (Result<(Int, UserBook), Error>) -> Void) {
         var totalCount: Int = 0
         var task: UserBook = UserBook()
         
@@ -51,10 +51,11 @@ final class SearchViewModel {
                                     now: false,
                                     isbn: isbn)
                 }
+                completion(.success((totalCount, task)))
             case .failure(let error):
                 print(error.localizedDescription)
+                completion(.failure(error.localizedDescription as! Error))
             }
         }
-        return (totalCount, task)
     }
 }

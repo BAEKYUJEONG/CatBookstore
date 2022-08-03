@@ -61,34 +61,32 @@ class SearchViewController: UIViewController {
     // 인터파크 책 네트워크 통신
     private func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            
-            let key = "195C74CC11F90BF250E1A5B4F89FA5FC997F3C9AB7F2F3DA1272D342B5B5DB8D"
-            
-            let url = "http://book.interpark.com/api/search.api?key=\(key)&query=\(text)&output=json&start=\(startPage)&maxResults=10&sort=salesPoint"
-            
+      
+            let url = EndPoint.getBook(text, startPage).url.absoluteString
+
             AF.request(url, method: .get).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    
+
                     self.totalCount = json["totalResults"].intValue
-                    
+
                     for item in json["item"].arrayValue {
                         let bookTitle = item["title"].stringValue
                         let author = item["author"].stringValue
                         let publisher = item["publisher"].stringValue
                         let image = item["coverLargeUrl"].stringValue
-                        
+
                         let pubDate = item["pubDate"].stringValue
                         let description = item["description"].stringValue
-                        
+
                         let customerReviewRank = item["customerReviewRank"].floatValue
                         let reviewCount = item["reviewCount"].intValue
                         let priceStandard = item["priceStandard"].intValue
                         let link = item["link"].stringValue
-                        
+
                         let isbn = item["isbn"].stringValue
-                        
+
                         let task = UserBook(bookTitle: bookTitle,
                                             author: author,
                                             publisher: publisher,
@@ -102,16 +100,16 @@ class SearchViewController: UIViewController {
                                             favorite: false,
                                             now: false,
                                             isbn: isbn)
-                        
+
                         try! self.localRealm.write {
                             self.localRealm.add(task)
                         }
                     }
-                    
+
                     DispatchQueue.main.async {
                         self.searchTableView.reloadData()
                     }
-                    
+
                 case .failure(let error):
                     print(error.localizedDescription)
                     self.systemLabel.isHidden = false
@@ -120,7 +118,6 @@ class SearchViewController: UIViewController {
         }
     }
 }
-
 
 extension SearchViewController: UITableViewDataSourcePrefetching {
     
