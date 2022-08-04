@@ -29,6 +29,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "책 검색"
+        
         searchTableView.delegate = self
         searchTableView.dataSource = self
         searchTableView.prefetchDataSource = self
@@ -36,8 +38,6 @@ class SearchViewController: UIViewController {
         
         showKeyboard()
         bind(viewModel)
-        
-        title = "책 검색"
         
         tasks = localRealm.objects(UserBook.self)
         print(localRealm.configuration.fileURL)
