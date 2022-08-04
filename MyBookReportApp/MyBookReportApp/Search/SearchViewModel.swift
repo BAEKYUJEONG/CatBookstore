@@ -12,9 +12,9 @@ final class SearchViewModel {
     
     private let bookAPIService = BookAPIService()
     
-    func getBook(_ text: String, _ startPage: Int, _ completion: @escaping (Result<(Int, UserBook), Error>) -> Void) {
+    func getBook(_ text: String, _ startPage: Int, _ completion: @escaping (Result<(Int, [UserBook]), Error>) -> Void) {
         var totalCount: Int = 0
-        var task: UserBook = UserBook()
+        var tasks: [UserBook] = []
         
         bookAPIService.getBook(text, startPage) { result in
             switch result {
@@ -37,21 +37,22 @@ final class SearchViewModel {
                     
                     let isbn = item["isbn"].stringValue
                     
-                    task = UserBook(bookTitle: bookTitle,
-                                    author: author,
-                                    publisher: publisher,
-                                    image: image,
-                                    pubDate: pubDate,
-                                    descriptionBook: description,
-                                    customerReviewRank: customerReviewRank,
-                                    reviewCount: reviewCount,
-                                    priceStandard: priceStandard,
-                                    link: link,
-                                    favorite: false,
-                                    now: false,
-                                    isbn: isbn)
+                    let task = UserBook(bookTitle: bookTitle,
+                                        author: author,
+                                        publisher: publisher,
+                                        image: image,
+                                        pubDate: pubDate,
+                                        descriptionBook: description,
+                                        customerReviewRank: customerReviewRank,
+                                        reviewCount: reviewCount,
+                                        priceStandard: priceStandard,
+                                        link: link,
+                                        favorite: false,
+                                        now: false,
+                                        isbn: isbn)
+                    tasks.append(task)
                 }
-                completion(.success((totalCount, task)))
+                completion(.success((totalCount, tasks)))
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.failure(error.localizedDescription as! Error))

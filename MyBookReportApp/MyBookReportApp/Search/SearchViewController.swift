@@ -18,7 +18,6 @@ class SearchViewController: UIViewController {
     
     let localRealm = try! Realm()
     var tasks: Results<UserBook>!
-    var bookData: [BookModel] = []
     
     @IBOutlet weak var systemLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -40,7 +39,6 @@ class SearchViewController: UIViewController {
         title = "책 검색"
         
         tasks = localRealm.objects(UserBook.self)
-        print("테스크", tasks)
         print(localRealm.configuration.fileURL)
     }
     
@@ -61,55 +59,19 @@ class SearchViewController: UIViewController {
     // 인터파크 책 네트워크 통신
     private func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-      
-            let url = EndPoint.getBook(text, startPage).url.absoluteString
-
-            AF.request(url, method: .get).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-
-                    self.totalCount = json["totalResults"].intValue
-
-                    for item in json["item"].arrayValue {
-                        let bookTitle = item["title"].stringValue
-                        let author = item["author"].stringValue
-                        let publisher = item["publisher"].stringValue
-                        let image = item["coverLargeUrl"].stringValue
-
-                        let pubDate = item["pubDate"].stringValue
-                        let description = item["description"].stringValue
-
-                        let customerReviewRank = item["customerReviewRank"].floatValue
-                        let reviewCount = item["reviewCount"].intValue
-                        let priceStandard = item["priceStandard"].intValue
-                        let link = item["link"].stringValue
-
-                        let isbn = item["isbn"].stringValue
-
-                        let task = UserBook(bookTitle: bookTitle,
-                                            author: author,
-                                            publisher: publisher,
-                                            image: image,
-                                            pubDate: pubDate,
-                                            descriptionBook: description,
-                                            customerReviewRank: customerReviewRank,
-                                            reviewCount: reviewCount,
-                                            priceStandard: priceStandard,
-                                            link: link,
-                                            favorite: false,
-                                            now: false,
-                                            isbn: isbn)
-
-                        try! self.localRealm.write {
-                            self.localRealm.add(task)
-                        }
+            
+            viewModel.getBook(text, startPage) { result in
+                switch result {
+                case .success(let bookData):
+                    self.totalCount = bookData.0
+                    
+                    try! self.localRealm.write {
+                        self.localRealm.add(bookData.1)
                     }
-
+                    
                     DispatchQueue.main.async {
                         self.searchTableView.reloadData()
                     }
-
                 case .failure(let error):
                     print(error.localizedDescription)
                     self.systemLabel.isHidden = false
