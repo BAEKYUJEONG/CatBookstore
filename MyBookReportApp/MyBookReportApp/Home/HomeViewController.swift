@@ -12,7 +12,7 @@ import Kingfisher
 import FSPagerView
 import RealmSwift
 
-class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDelegate {
+class HomeViewController: UIViewController {
     
     private var viewModel = HomeViewModel()
     let localRealm = try! Realm()
@@ -56,34 +56,12 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         title = "홈"
         
-        //todayDateLable
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yyyy년 M월 d일"
-        let strDate = format.string(from: date)
-        todayDateLabel.text = strDate
-        
-        //bookQuotesLabel
-        let random1 = Int.random(in: 0...bookQuotes.count-1)
-        bookQuotesLabel.text = bookQuotes[random1]
-        bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 14)
-        
-        //bookQuotesImageView
-        let random2 = Int.random(in: 0...bookQuotesImages.count-1)
-        let bookQuotesUrl = URL(string: bookQuotesImages[random2])
-        bookQuotesImageView.kf.setImage(with: bookQuotesUrl)
-        
-        // 행간 조절
-        let attrString = NSMutableAttributedString(string: bookQuotesLabel.text!)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 2
-        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
-        bookQuotesLabel.attributedText = attrString
-        
         homeSearchBar.delegate = self
         pagerView.dataSource = self
         pagerView.delegate = self
         
+        todayDateSetting()
+        bookQuoteSetting()
         fetchBestSellerData()
         bind(viewModel)
         
@@ -101,6 +79,14 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     private func bind(_ viewModel: HomeViewModel) {
         self.viewModel = viewModel
+    }
+    
+    func todayDateSetting() {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy년 M월 d일"
+        let strDate = format.string(from: date)
+        todayDateLabel.text = strDate
     }
     
     func recentSetting() {
@@ -142,6 +128,23 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     func recentViewClicked() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(goPage(sender:)))
         recentView.addGestureRecognizer(gesture)
+    }
+    
+    func bookQuoteSetting() {
+        let random2 = Int.random(in: 0...bookQuotesImages.count-1)
+        let bookQuotesUrl = URL(string: bookQuotesImages[random2])
+        bookQuotesImageView.kf.setImage(with: bookQuotesUrl)
+        
+        let random1 = Int.random(in: 0...bookQuotes.count-1)
+        bookQuotesLabel.text = bookQuotes[random1]
+        bookQuotesLabel.font = UIFont(name: "GowunBatang-Regular", size: 14)
+        
+        /// 행간 조절
+        let attrString = NSMutableAttributedString(string: bookQuotesLabel.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 2
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        bookQuotesLabel.attributedText = attrString
     }
     
     @objc func goPage(sender: UITapGestureRecognizer) {
@@ -192,6 +195,19 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
             }
         }
     }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    // 커서가 깜빡이기 시작할 때
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.identifier) as! SearchViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeViewController: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
@@ -233,16 +249,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         
         vc.isbnText = row.isbn
         
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension HomeViewController: UISearchBarDelegate {
-    
-    // 커서가 깜빡이기 시작할 때
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let sb = UIStoryboard(name: "Search", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.identifier) as! SearchViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
