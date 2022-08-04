@@ -14,6 +14,7 @@ import RealmSwift
 
 class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDelegate {
     
+    private var viewModel = HomeViewModel()
     let localRealm = try! Realm()
     
     var tasks: Results<UserBestBook>!
@@ -84,6 +85,7 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         pagerView.delegate = self
         
         fetchBestSellerData()
+        bind(viewModel)
         
         tasks = localRealm.objects(UserBestBook.self)
         print("링크", localRealm.configuration.fileURL)
@@ -95,6 +97,10 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         recentSetting()
+    }
+    
+    private func bind(_ viewModel: HomeViewModel) {
+        self.viewModel = viewModel
     }
     
     func recentSetting() {
@@ -163,48 +169,16 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
     }
     
     func fetchBestSellerData() {
-        
-        let key = "195C74CC11F90BF250E1A5B4F89FA5FC997F3C9AB7F2F3DA1272D342B5B5DB8D"
-        
-        let url = "http://book.interpark.com/api/bestSeller.api?key=\(key)&categoryId=100&output=json"
-        
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
+        viewModel.getBestSeller { result in
+            switch result {
+            case .success(let bestSellerData):
+                let tasks = bestSellerData.0
+                let images = bestSellerData.1
                 
-                for item in json["item"].arrayValue {
-                    let title = item["title"].stringValue
-                    let author = item["author"].stringValue
-                    let publisher = item["publisher"].stringValue
-                    let image = item["coverLargeUrl"].stringValue
+                try! self.localRealm.write {
+                    self.localRealm.add(tasks)
                     
-                    let pubDate = item["pubDate"].stringValue
-                    let description = item["description"].stringValue
-                    
-                    let customerReviewRank = item["customerReviewRank"].floatValue
-                    let reviewCount = item["reviewCount"].intValue
-                    let priceStandard = item["priceStandard"].intValue
-                    let link = item["link"].stringValue
-                    
-                    let isbn = item["isbn"].stringValue
-                    
-                    let task = UserBestBook(bookTitle: title,
-                                        author: author,
-                                        publisher: publisher,
-                                        image: image,
-                                        pubDate: pubDate,
-                                        descriptionBook: description,
-                                        customerReviewRank: customerReviewRank,
-                                        reviewCount: reviewCount,
-                                        priceStandard: priceStandard,
-                                        link: link,
-                                        favorite: false,
-                                        now: false,
-                                        isbn: isbn)
-                    
-                    try! self.localRealm.write {
-                        self.localRealm.add(task)
+                    for image in images {
                         self.arrayBestSellerCover.append(image)
                     }
                 }
@@ -212,7 +186,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
                 DispatchQueue.main.async {
                     self.pagerView.reloadData()
                 }
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 self.systemLabel.isHidden = false

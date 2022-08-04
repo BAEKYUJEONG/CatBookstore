@@ -35,6 +35,7 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         
         showKeyboard()
+        bind(viewModel)
         
         title = "책 검색"
         
@@ -55,18 +56,20 @@ class SearchViewController: UIViewController {
     private func showKeyboard() {
         searchBar.becomeFirstResponder()
     }
-        
-    // 인터파크 책 네트워크 통신
+    
     private func fetchBookData(query: String) {
         if let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             
             viewModel.getBook(text, startPage) { result in
                 switch result {
                 case .success(let bookData):
-                    self.totalCount = bookData.0
+                    let totalCount = bookData.0
+                    let tasks = bookData.1
+                    
+                    self.totalCount = totalCount
                     
                     try! self.localRealm.write {
-                        self.localRealm.add(bookData.1)
+                        self.localRealm.add(tasks)
                     }
                     
                     DispatchQueue.main.async {
