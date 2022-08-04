@@ -9,6 +9,7 @@ import Foundation
 
 enum EndPoint {
     case getBook(String, Int)
+    case getBestSeller
 }
 
 extension EndPoint {
@@ -18,6 +19,8 @@ extension EndPoint {
         switch self {
         case .getBook(let text, let startPage):
             return .makeEndPoint("search.api?key=\(EndPoint.key)&query=\(text)&output=json&start=\(startPage)&maxResults=10&sort=salesPoint")
+        case .getBestSeller:
+            return .makeEndPoint("bestSeller.api?key=\(EndPoint.key)&categoryId=100&output=json")
         }
     }
 }
