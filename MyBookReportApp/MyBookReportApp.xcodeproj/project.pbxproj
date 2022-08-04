@@ -44,6 +44,7 @@
 		68DCCD862897C21500EB45B3 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DCCD852897C21500EB45B3 /* EndPoint.swift */; };
 		68DCCD8A2897CF4D00EB45B3 /* BookAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DCCD892897CF4D00EB45B3 /* BookAPIService.swift */; };
 		68DCCD8C2898E75D00EB45B3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DCCD8B2898E75D00EB45B3 /* SearchViewModel.swift */; };
+		68DCCD8E289B5DF100EB45B3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DCCD8D289B5DF100EB45B3 /* HomeViewModel.swift */; };
 		E2CFB4AEF22EA7187463DA70 /* Pods_MyBookReportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		68DCCD852897C21500EB45B3 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		68DCCD892897CF4D00EB45B3 /* BookAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPIService.swift; sourceTree = "<group>"; };
 		68DCCD8B2898E75D00EB45B3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		68DCCD8D289B5DF100EB45B3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C059C47D528FFAC2B903992C /* Pods_MyBookReportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBookReportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18B190597AB9CD60ECF8707 /* Pods-MyBookReportApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBookReportApp.release.xcconfig"; path = "Target Support Files/Pods-MyBookReportApp/Pods-MyBookReportApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				6853AB11274B3D89007ED148 /* HomeViewController.swift */,
+				68DCCD8D289B5DF100EB45B3 /* HomeViewModel.swift */,
 				6853AB17274B3ED7007ED148 /* Home.storyboard */,
 			);
 			path = Home;
@@ -400,6 +403,7 @@
 				6853AB20274B40F1007ED148 /* NoteViewController.swift in Sources */,
 				68DCCD8A2897CF4D00EB45B3 /* BookAPIService.swift in Sources */,
 				6853AB24274B4A3B007ED148 /* FavoriteTableViewCell.swift in Sources */,
+				68DCCD8E289B5DF100EB45B3 /* HomeViewModel.swift in Sources */,
 				6853AB02274B3D47007ED148 /* ViewController.swift in Sources */,
 				68DCCD8C2898E75D00EB45B3 /* SearchViewModel.swift in Sources */,
 				6853AB3E274CD5E9007ED148 /* Model.swift in Sources */,
