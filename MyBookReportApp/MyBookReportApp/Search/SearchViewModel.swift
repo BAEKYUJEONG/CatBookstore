@@ -54,7 +54,6 @@ final class SearchViewModel {
                 }
                 completion(.success((totalCount, tasks)))
             case .failure(let error):
-                print(error.localizedDescription)
                 completion(.failure(error.localizedDescription as! Error))
             }
         }

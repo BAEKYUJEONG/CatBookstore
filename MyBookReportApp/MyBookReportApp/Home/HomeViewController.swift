@@ -172,7 +172,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
                 
                 for item in json["item"].arrayValue {
                     let title = item["title"].stringValue
