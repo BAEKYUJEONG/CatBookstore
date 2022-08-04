@@ -86,7 +86,6 @@ class HomeViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDe
         fetchBestSellerData()
         
         tasks = localRealm.objects(UserBestBook.self)
-        print("테스크", tasks)
         print("링크", localRealm.configuration.fileURL)
         
         try! localRealm.write {

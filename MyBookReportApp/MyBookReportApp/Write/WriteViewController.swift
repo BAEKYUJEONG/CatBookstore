@@ -71,8 +71,6 @@ class WriteViewController: UIViewController {
     }
     
     @objc func cancelButtonClicked() {
-        print("cancel 클릭")
-        
         if writeTextView.text.isEmpty {
             // 내용이 없다면 닫기
             self.navigationController?.popViewController(animated: true)

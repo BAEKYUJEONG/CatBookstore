@@ -74,7 +74,6 @@ class SearchDetailViewController: UIViewController {
         floatingDimView.addGestureRecognizer(floatingDimViewGesture)
         
         tasks = localRealm.objects(UserRecentBook.self)
-        print("테스크", tasks)
         print(localRealm.configuration.fileURL)
         
         let task = UserRecentBook(bookTitle: titleText,
@@ -229,9 +228,6 @@ class SearchDetailViewController: UIViewController {
         
         try! localRealm.write {
             let thisBook = localRealm.objects(UserFavoriteBook.self).filter("isbn == '\(isbnText)'")
-
-            print("디스북", thisBook)
-            print("페이보릿 북", localRealm.objects(UserFavoriteBook.self))
             
             if thisBook.isEmpty{
                 // 책 자체가 없으면 넣기
