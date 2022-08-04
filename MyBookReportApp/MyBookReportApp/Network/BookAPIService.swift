@@ -24,4 +24,18 @@ final class BookAPIService {
             }
         }
     }
+    
+    func getBestSeller(_ completion: @escaping (Result<JSON, Error>) -> Void) {
+        let url = EndPoint.getBestSeller.url.absoluteString
+        
+        AF.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(.success(json))
+            case .failure(let error):
+                completion(.failure(error.localizedDescription as! Error))
+            }
+        }
+    }
 }
