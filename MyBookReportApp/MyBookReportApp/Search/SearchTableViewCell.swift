@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
-
+    
     static let identifier = "SearchTableViewCell"
     
     @IBOutlet weak var view: UIView!
@@ -47,7 +47,7 @@ class SearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

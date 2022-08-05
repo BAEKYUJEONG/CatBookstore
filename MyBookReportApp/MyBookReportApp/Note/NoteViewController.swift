@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 class NoteViewController: UIViewController {
-
+    
     static let identifier = "NoteViewController"
     let localRealm = try! Realm()
     

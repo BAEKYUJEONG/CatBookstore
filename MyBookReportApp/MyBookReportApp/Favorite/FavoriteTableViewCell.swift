@@ -10,7 +10,7 @@ import UIKit
 class FavoriteTableViewCell: UITableViewCell {
     
     static let identifier = "FavoriteTableViewCell"
-
+    
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var favoriteTitle: UILabel!
     @IBOutlet weak var favoriteAuthor: UILabel!
@@ -33,7 +33,7 @@ class FavoriteTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

@@ -114,6 +114,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		68274DFE289D19370037660C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				6853AB01274B3D47007ED148 /* ViewController.swift */,
+				6853AB03274B3D47007ED148 /* Main.storyboard */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		684DEA532755450900FDC45D /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +153,7 @@
 		6853AAFC274B3D47007ED148 /* MyBookReportApp */ = {
 			isa = PBXGroup;
 			children = (
+				68274DFE289D19370037660C /* TabBar */,
 				68DCCD842897C19C00EB45B3 /* Network */,
 				6853AB3A274C065F007ED148 /* Model */,
 				68DCCD7D2897B56100EB45B3 /* Home */,
@@ -156,8 +166,6 @@
 				684DEA532755450900FDC45D /* Font */,
 				6853AAFD274B3D47007ED148 /* AppDelegate.swift */,
 				6853AAFF274B3D47007ED148 /* SceneDelegate.swift */,
-				6853AB01274B3D47007ED148 /* ViewController.swift */,
-				6853AB03274B3D47007ED148 /* Main.storyboard */,
 				6853AB08274B3D49007ED148 /* LaunchScreen.storyboard */,
 				6853AB06274B3D49007ED148 /* Assets.xcassets */,
 				6853AB0B274B3D49007ED148 /* Info.plist */,

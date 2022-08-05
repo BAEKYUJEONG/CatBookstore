@@ -8,7 +8,7 @@
 import UIKit
 
 class NoteTableViewCell: UITableViewCell {
-
+    
     static let identifier = "NoteTableViewCell"
     
     @IBOutlet weak var noteImageView: UIImageView!
@@ -47,7 +47,7 @@ class NoteTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

@@ -10,7 +10,7 @@ import RealmSwift
 import Kingfisher
 
 class FavoriteViewController: UIViewController {
-
+    
     @IBOutlet weak var favoriteTableView: UITableView!
     @IBOutlet weak var favoriteEmptyView: UIView!
     

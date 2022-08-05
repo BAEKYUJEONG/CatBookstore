@@ -12,7 +12,7 @@ import SwiftyJSON
 import RealmSwift
 
 class SearchViewController: UIViewController {
-
+    
     static let identifier = "SearchViewController"
     private var viewModel = SearchViewModel()
     
