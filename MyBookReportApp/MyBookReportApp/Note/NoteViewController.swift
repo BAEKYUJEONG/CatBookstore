@@ -34,6 +34,7 @@ class NoteViewController: UIViewController {
         
         noteTableView.reloadData()
         emptyView()
+        LongPress()
     }
     
     func emptyView() {
@@ -41,6 +42,39 @@ class NoteViewController: UIViewController {
             noteEmptyView.isHidden = false
         } else {
             noteEmptyView.isHidden = true
+        }
+    }
+    
+    private func LongPress() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+        noteTableView.addGestureRecognizer(longPress)
+    }
+    
+    @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let touchPoint = sender.location(in: noteTableView)
+            if let indexPath = noteTableView.indexPathForRow(at: touchPoint) {
+                
+                let alert = UIAlertController(title: "사진 삭제", message: "사진을 삭제하시겠습니까?", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "취소", style: .cancel)
+                let delete = UIAlertAction(title: "삭제", style: .default) { delete in
+                    let row = self.tasks[indexPath.row]
+                    
+                    try! self.localRealm.write {
+                        self.localRealm.delete(row)
+                        self.noteTableView.reloadData()
+                        if self.tasks.count == 0 {
+                            self.noteEmptyView.isHidden = false
+                        }
+                    }
+                    
+                    self.noteTableView.reloadData()
+                }
+                
+                alert.addAction(cancel)
+                alert.addAction(delete)
+                self.present(alert, animated: true)
+            }
         }
     }
 }
