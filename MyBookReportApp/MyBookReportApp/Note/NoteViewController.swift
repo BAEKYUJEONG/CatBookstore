@@ -55,20 +55,18 @@ class NoteViewController: UIViewController {
             let touchPoint = sender.location(in: noteTableView)
             if let indexPath = noteTableView.indexPathForRow(at: touchPoint) {
                 
-                let alert = UIAlertController(title: "사진 삭제", message: "사진을 삭제하시겠습니까?", preferredStyle: .alert)
+                let alert = UIAlertController(title: "노트 삭제", message: "노트를 삭제하겠냥?", preferredStyle: .alert)
                 let cancel = UIAlertAction(title: "취소", style: .cancel)
                 let delete = UIAlertAction(title: "삭제", style: .default) { delete in
                     let row = self.tasks[indexPath.row]
                     
                     try! self.localRealm.write {
                         self.localRealm.delete(row)
-                        self.noteTableView.reloadData()
+                        self.noteTableView.deleteRows(at: [indexPath], with: .automatic)
                         if self.tasks.count == 0 {
                             self.noteEmptyView.isHidden = false
                         }
                     }
-                    
-                    self.noteTableView.reloadData()
                 }
                 
                 alert.addAction(cancel)
