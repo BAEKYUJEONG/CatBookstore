@@ -37,7 +37,7 @@ class NoteViewController: UIViewController {
         LongPress()
     }
     
-    func emptyView() {
+    private func emptyView() {
         if tasks.count == 0 {
             noteEmptyView.isHidden = false
         } else {
@@ -57,7 +57,8 @@ class NoteViewController: UIViewController {
                 
                 let alert = UIAlertController(title: "노트 삭제", message: "노트를 삭제하겠냥?", preferredStyle: .alert)
                 let cancel = UIAlertAction(title: "취소", style: .cancel)
-                let delete = UIAlertAction(title: "삭제", style: .default) { delete in
+                let delete = UIAlertAction(title: "삭제", style: .default) { [weak self] delete in
+                    guard let self = self else { return }
                     let row = self.tasks[indexPath.row]
                     
                     try! self.localRealm.write {
@@ -115,17 +116,5 @@ extension NoteViewController: UITableViewDelegate, UITableViewDataSource {
         vc.isbnText = row.isbn
         
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let row = tasks[indexPath.row]
-        
-        try! localRealm.write {
-            localRealm.delete(row)
-            noteTableView.reloadData()
-            if tasks.count == 0 {
-                noteEmptyView.isHidden = false
-            }
-        }
     }
 }
