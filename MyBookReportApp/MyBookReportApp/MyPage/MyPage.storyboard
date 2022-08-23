@@ -17,58 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat_Launch" translatesAutoresizingMaskIntoConstraints="NO" id="duB-Ar-eqG">
-                                <rect key="frame" x="214" y="190" width="150" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookCat_smile" translatesAutoresizingMaskIntoConstraints="NO" id="TtY-AM-oB7">
+                                <rect key="frame" x="127" y="160" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="jql-30-oea"/>
-                                    <constraint firstAttribute="width" secondItem="duB-Ar-eqG" secondAttribute="height" multiplier="1:1" id="rHh-D0-DWI"/>
+                                    <constraint firstAttribute="height" constant="160" id="tMv-Jc-9RP"/>
+                                    <constraint firstAttribute="width" secondItem="TtY-AM-oB7" secondAttribute="height" multiplier="1:1" id="xL0-yR-wJF"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNf-qY-ql0">
-                                <rect key="frame" x="124" y="411" width="167" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="백업하기"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-vY-OEL">
-                                <rect key="frame" x="124" y="485" width="167" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="복원하기"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사용 문의 및 건의하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asK-tG-HvZ">
-                                <rect key="frame" x="134" y="616" width="146" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오픈소스 라이선스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjv-jc-ZqU">
-                                <rect key="frame" x="146" y="663" width="122" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개발자 소개 - git" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnp-5f-1SP">
-                                <rect key="frame" x="150" y="564" width="114" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEM-LY-JLJ">
-                                <rect key="frame" x="143" y="766" width="129" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="개인정보 처리 방침"/>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="c9x-2M-xZK">
+                                <rect key="frame" x="0.0" y="350" width="414" height="463"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Alx-Fo-mxd">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Alx-Fo-mxd" id="xVC-HY-ycJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="duB-Ar-eqG" secondAttribute="trailing" constant="50" id="ChJ-nK-gEM"/>
-                            <constraint firstItem="duB-Ar-eqG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="X3f-LV-Ul7"/>
+                            <constraint firstItem="TtY-AM-oB7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DKx-vV-obC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="c9x-2M-xZK" secondAttribute="bottom" id="DsB-WD-u7Z"/>
+                            <constraint firstItem="c9x-2M-xZK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QMK-WV-fZY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="c9x-2M-xZK" secondAttribute="trailing" id="Uoj-FM-LCL"/>
+                            <constraint firstItem="c9x-2M-xZK" firstAttribute="top" secondItem="TtY-AM-oB7" secondAttribute="bottom" constant="30" id="hCL-bS-k5L"/>
+                            <constraint firstItem="TtY-AM-oB7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="x0X-Wt-PXj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AKq-di-bgW"/>
@@ -99,7 +78,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BookCat_Launch" width="512" height="512"/>
+        <image name="BookCat_smile" width="470" height="470"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
