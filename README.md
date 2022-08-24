@@ -13,4 +13,20 @@
 "고양이 책방" 이라는 이름으로 iOS Appstore에서 검색 가능합니다!
 
 <left><img width="700" src="https://github.com/BAEKYUJEONG/MyBookReportApp/blob/master/resources/catbookstore.png" alt="wireframe"/><left>
+<br></br>
 
+## ⏱️ 개발 기간 및 사용 기술
+
+- 개발 기간: 2021.11.15 ~ 2021.12.10 (4주, 유지 보수 중)
+- 사용 기술:  `Storyboard`, `Autolayout`, `SwiftyJSON`, `Realm`, `Firebase`, `Kingfisher`, `FSPagerView`, `MVC`
+
+<br></br>
+
+## 📝 담당 업무
+
+- 기획 & 기능 개발
+- 베스트셀러 탭 개발
+- 책 검색 기능 개발
+- 책 세부 사항 페이지 개발
+- 책 좋아요 기능 개발
+- 노트 기록 CRUD 개발
