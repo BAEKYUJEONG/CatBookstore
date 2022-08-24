@@ -13,6 +13,7 @@
 "고양이 책방" 이라는 이름으로 iOS Appstore에서 검색 가능합니다!
 
 <left><img width="700" src="https://github.com/BAEKYUJEONG/MyBookReportApp/blob/master/resources/catbookstore.png" alt="wireframe"/><left>
+
 <br></br>
 
 ## ⏱️ 개발 기간 및 사용 기술
